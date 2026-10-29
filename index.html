@@ -1,141 +1,390 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>C Programming Lab</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Language Practice</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 55px 20px 35px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+            color: #58a6ff;
+        }
+
+        header p {
+            color: #aab4c0;
+            font-size: 16px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .topics {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(220px, 1fr)
+            );
+            gap: 18px;
+        }
+
+        details {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        details[open] {
+            grid-column: 1 / -1;
+            border-color: #58a6ff;
+        }
+
+        summary {
+            padding: 22px;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: bold;
+            color: #e6edf3;
+            list-style: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            float: right;
+            color: #58a6ff;
+            font-size: 22px;
+        }
+
+        details[open] summary::after {
+            content: "−";
+        }
+
+        summary:hover {
+            background: #212936;
+        }
+
+        .topic-content {
+            padding: 0 20px 20px;
+        }
+
+        .program {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            margin-top: 18px;
+            overflow: hidden;
+        }
+
+        .program h3 {
+            padding: 14px 16px;
+            font-size: 16px;
+            color: #79c0ff;
+            border-bottom: 1px solid #30363d;
+        }
+
+        pre {
+            padding: 18px;
+            overflow-x: auto;
+            white-space: pre;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        code {
+            font-family: "Courier New", monospace;
+            color: #d2a8ff;
+        }
+
+        .output {
+            padding: 14px 18px;
+            border-top: 1px solid #30363d;
+            color: #aab4c0;
+            font-size: 14px;
+        }
+
+        .output strong {
+            color: #7ee787;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 50px;
+            border-top: 1px solid #30363d;
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 29px;
+            }
+
+            main {
+                padding: 0 14px;
+            }
+
+            summary {
+                padding: 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>C Programming Lab</h1>
-    <p class="subtitle">My C programs and practical outputs</p>
+    <header>
+        <h1>C Language Practice</h1>
+        <p>A collection of C programs with solutions and sample outputs.</p>
+    </header>
 
-    <h2>Topics</h2>
+    <main>
+        <h2 class="section-title">Explore Topics</h2>
 
-    <div class="topics">
+        <div class="topics">
 
-        <a href="#basics" class="card">
-            <h3>Basic Programs</h3>
-            <p>Simple C programs</p>
-        </a>
+            <!-- TOPIC 1: BASIC INPUT / OUTPUT -->
+            <details>
+                <summary>Basic Input / Output</summary>
 
-        <a href="#loops" class="card">
-            <h3>Loops</h3>
-            <p>For, while and do-while</p>
-        </a>
+                <div class="topic-content">
 
-        <a href="#arrays" class="card">
-            <h3>Arrays</h3>
-            <p>One-dimensional arrays</p>
-        </a>
+                    <div class="program">
+                        <h3>1. Print a message</h3>
 
-        <a href="#functions" class="card">
-            <h3>Functions</h3>
-            <p>User-defined functions</p>
-        </a>
+                        <pre><code>#include &lt;stdio.h&gt;
 
-        <a href="#structures" class="card">
-            <h3>Structures</h3>
-            <p>Structure programs</p>
-        </a>
-
-        <a href="#files" class="card">
-            <h3>File Handling</h3>
-            <p>Reading and writing files</p>
-        </a>
-
-    </div>
-
-
-    <div class="programs">
-
-        <section id="basics">
-            <h2>Basic Programs</h2>
-
-            <h3>Program 1: Print Hello World</h3>
-
-            <p>Code:</p>
-            <pre><code>#include &lt;stdio.h&gt;
-
-int main()
+int main(void)
 {
-    printf("Hello World");
+    printf("Today I made my first C Program.\n");
     return 0;
 }</code></pre>
 
-            <p>Output:</p>
-            <pre><code>Hello World</code></pre>
-        </section>
+                        <div class="output">
+                            <strong>Output:</strong>
+                            <pre><code>Today I made my first C Program.</code></pre>
+                        </div>
+                    </div>
 
+                    <div class="program">
+                        <h3>2. Read and display a character</h3>
 
-        <section id="loops">
-            <h2>Loops</h2>
+                        <pre><code>#include &lt;stdio.h&gt;
 
-            <h3>Program 1: Print numbers from 1 to 5</h3>
-
-            <p>Code:</p>
-            <pre><code>#include &lt;stdio.h&gt;
-
-int main()
+int main(void)
 {
-    int i;
+    char ch;
 
-    for(i = 1; i &lt;= 5; i++)
-    {
-        printf("%d ", i);
-    }
+    printf("Enter a character: ");
+    scanf(" %c", &amp;ch);
+
+    printf("You entered: %c\n", ch);
 
     return 0;
 }</code></pre>
 
-            <p>Output:</p>
-            <pre><code>1 2 3 4 5</code></pre>
-        </section>
+                        <div class="output">
+                            <strong>Sample output:</strong>
+                            <pre><code>Enter a character: A
+You entered: A</code></pre>
+                        </div>
+                    </div>
+
+                    <!--  BASIC INPUT/OUTPUT PROGRAMS  -->
+
+                </div>
+            </details>
 
 
-        <section id="arrays">
-            <h2>Arrays</h2>
+            <!-- TOPIC 2: OPERATORS -->
+            <details>
+                <summary>Operators</summary>
 
-            <h3>Program 1: Print array elements</h3>
+                <div class="topic-content">
 
-            <p>Code:</p>
-            <pre><code>#include &lt;stdio.h&gt;
+                    <div class="program">
+                        <h3>1. Calculate simple interest</h3>
 
-int main()
+                        <pre><code>#include &lt;stdio.h&gt;
+
+int main(void)
 {
-    int a[3] = {10, 20, 30};
-    int i;
+    float p, r, t, interest;
 
-    for(i = 0; i &lt; 3; i++)
-    {
-        printf("%d ", a[i]);
-    }
+    printf("Enter principal, rate and time: ");
+    scanf("%f%f%f", &amp;p, &amp;r, &amp;t);
+
+    interest = (p * r * t) / 100;
+
+    printf("Simple interest = %.2f\n", interest);
 
     return 0;
 }</code></pre>
 
-            <p>Output:</p>
-            <pre><code>10 20 30</code></pre>
-        </section>
+                        <div class="output">
+                            <strong>Sample output:</strong>
+                            <pre><code>Enter principal, rate and time: 1000 5 2
+Simple interest = 100.00</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- OPERATOR PROGRAMS  -->
+
+                </div>
+            </details>
 
 
-        <section id="functions">
-            <h2>Functions</h2>
-            <p>Add your function programs here.</p>
-        </section>
+            <!-- TOPIC 3: DECISION CONTROL -->
+            <details>
+                <summary>Decision Control Structure</summary>
 
-        <section id="structures">
-            <h2>Structures</h2>
-            <p>Add your structure programs here.</p>
-        </section>
+                <div class="topic-content">
 
-        <section id="files">
-            <h2>File Handling</h2>
-            <p>Add your file handling programs here.</p>
-        </section>
+                    <div class="program">
+                        <h3>1. Check whether a number is odd or even</h3>
 
-    </div>
+                        <pre><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int n;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;n);
+
+    if (n % 2 == 0)
+        printf("Even\n");
+    else
+        printf("Odd\n");
+
+    return 0;
+}</code></pre>
+
+                        <div class="output">
+                            <strong>Sample output:</strong>
+                            <pre><code>Enter a number: 13
+Odd</code></pre>
+                        </div>
+                    </div>
+
+                    <!--  DECISION CONTROL PROGRAMS  -->
+
+                </div>
+            </details>
+
+
+            <!-- TOPIC 4: LOOPS -->
+            <details>
+                <summary>Iterative Control Structure (Loops)</summary>
+
+                <div class="topic-content">
+
+                    <!-- ADD YOUR LOOP PROGRAMS HERE -->
+
+                </div>
+            </details>
+
+
+            <!-- TOPIC 5: ARRAYS -->
+            <details>
+                <summary>Single-Dimensional Arrays</summary>
+
+                <div class="topic-content">
+
+                    <!-- ARRAY PROGRAMS  -->
+
+                </div>
+            </details>
+
+
+            <!-- TOPIC 6: FUNCTIONS -->
+            <details>
+                <summary>Functions</summary>
+
+                <div class="topic-content">
+
+                    <!-- FUNCTION PROGRAMS  -->
+
+                </div>
+            </details>
+
+
+            <!-- TOPIC 7: STRINGS -->
+            <details>
+                <summary>Strings</summary>
+
+                <div class="topic-content">
+
+                    <!-- STRING PROGRAMS  -->
+
+                </div>
+            </details>
+
+
+            <!-- TOPIC 8: MULTIDIMENSIONAL ARRAYS -->
+            <details>
+                <summary>Multidimensional Arrays</summary>
+
+                <div class="topic-content">
+
+                    <!-- MULTIDIMENSIONAL ARRAY PROGRAMS -->
+
+                </div>
+            </details>
+
+
+            <!-- TOPIC 9: STRUCTURES -->
+            <details>
+                <summary>Structures</summary>
+
+                <div class="topic-content">
+
+                    <!-- STRUCTURE PROGRAMS -->
+
+                </div>
+            </details>
+
+        </div>
+    </main>
+
+    <footer>
+        C Language Practice Website | Made for learning
+    </footer>
 
 </body>
 </html>
