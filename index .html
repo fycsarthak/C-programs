@@ -1,0 +1,2350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C Language Practice Solutions</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,sans-serif;background:#0d1117;color:#e6edf3;line-height:1.6}header{text-align:center;padding:54px 20px 36px;background:#161b22;border-bottom:1px solid #30363d}header h1{font-size:clamp(28px,5vw,40px);color:#58a6ff;margin-bottom:8px}header p{color:#aab4c0}main{max-width:1050px;margin:36px auto;padding:0 20px}.section-title{font-size:24px;margin-bottom:20px}.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}details{background:#161b22;border:1px solid #30363d;border-radius:12px;overflow:hidden}details[open]{grid-column:1/-1;border-color:#58a6ff}summary{padding:20px;cursor:pointer;font-weight:700;font-size:17px;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:'+';float:right;color:#58a6ff;font-size:22px}details[open]>summary:after{content:'−'}summary:hover{background:#212936}.topic-content{padding:0 18px 20px}.program{margin-top:18px;background:#0d1117;border:1px solid #30363d;border-radius:8px;overflow:hidden}.program h3{padding:13px 16px;color:#79c0ff;font-size:16px;border-bottom:1px solid #30363d}pre{padding:16px;overflow-x:auto;white-space:pre;font:14px/1.55 'Courier New',monospace;color:#d2a8ff}.output{border-top:1px solid #30363d}.output-label{padding:12px 16px 0;color:#7ee787;font-weight:bold;font-size:14px}.empty-output{padding:12px 16px;color:#8b949e;font-size:13px}footer{text-align:center;padding:25px 15px;margin-top:45px;border-top:1px solid #30363d;color:#8b949e;font-size:14px}@media(max-width:600px){main{padding:0 12px}summary{padding:17px}}</style>
+</head>
+<body>
+<header><h1>C Language Practice</h1><p>C practice questions, solutions, and sample outputs</p></header>
+<main><h2 class="section-title">Explore Topics</h2><div class="topics">
+<details>
+<summary>Basic Input / Output</summary>
+<div class="topic-content">
+<section class="program">
+<h3>1. Print the message “Today I made my first C Program.”</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+printf(&quot;Today I made my first C Program.\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Today I made my first C Program.</code></pre></div>
+</section>
+<section class="program">
+<h3>2. Read a character and display it.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char ch;
+printf(&quot;Enter a character: &quot;);
+scanf(&quot; %c&quot;, &amp;ch);
+printf(&quot;You entered: %c\n&quot;, ch);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a character: A
+You entered: A</code></pre></div>
+</section>
+<section class="program">
+<h3>3. Read four characters and display each on a separate line.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char ch;
+int i;
+printf(&quot;Enter four characters: &quot;);
+for (i = 0; i &lt; 4; i++)
+{
+scanf(&quot; %c&quot;, &amp;ch);
+printf(&quot;%c\n&quot;, ch);
+}
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter four characters: ABCD
+A
+B
+C
+D</code></pre></div>
+</section>
+<section class="program">
+<h3>4. Print your name near the centre of the first line.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char name[50];
+printf(&quot;Enter your name: &quot;);
+scanf(&quot;%49s&quot;, name);
+printf(&quot;\t\t%s\n&quot;, name);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter your name: Sara
+Sara</code></pre></div>
+</section>
+<section class="program">
+<h3>5. Store a single quote in a variable and print it.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char quote = &#x27;\&#x27;&#x27;;
+printf(&quot;%c\n&quot;, quote);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>&#x27;</code></pre></div>
+</section>
+<section class="program">
+<h3>6. Print a name five times with a blink-style terminal effect.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char name[50];
+int i;
+printf(&quot;Enter your name: &quot;);
+scanf(&quot;%49s&quot;, name);
+for (i = 0; i &lt; 5; i++)
+printf(&quot;\033[5m%s\033[0m\n&quot;, name);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter your name: Sara
+Sara
+Sara
+Sara
+Sara
+Sara</code></pre></div>
+</section>
+<section class="program">
+<h3>7. Print your name near the centre of the first line (duplicate exercise).</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char name[50];
+printf(&quot;Enter your name: &quot;);
+scanf(&quot;%49s&quot;, name);
+printf(&quot;\t\t%s\n&quot;, name);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter your name: Sara
+Sara</code></pre></div>
+</section>
+<section class="program">
+<h3>8. Display “hello, welcome to c”.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+printf(&quot;hello, welcome to c\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>hello, welcome to c</code></pre></div>
+</section>
+<section class="program">
+<h3>9. Print your name near the centre of the screen.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char name[50];
+printf(&quot;Enter your name: &quot;);
+scanf(&quot;%49s&quot;, name);
+printf(&quot;\n\n\n\t\t\t%s\n&quot;, name);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter your name: Sara
+Sara</code></pre></div>
+</section>
+<section class="program">
+<h3>10. Store a single quote and print it (duplicate exercise).</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char quote = &#x27;\&#x27;&#x27;;
+printf(&quot;%c\n&quot;, quote);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>&#x27;</code></pre></div>
+</section>
+<section class="program">
+<h3>11. Print a name five times (duplicate blinking-name exercise).</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char name[50];
+int i;
+printf(&quot;Enter your name: &quot;);
+scanf(&quot;%49s&quot;, name);
+for (i = 0; i &lt; 5; i++)
+printf(&quot;%s\n&quot;, name);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter your name: Sara
+Sara
+Sara
+Sara
+Sara
+Sara</code></pre></div>
+</section>
+<section class="program">
+<h3>12. Read a password and display asterisks for its characters.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char password[100];
+int i;
+printf(&quot;Enter password: &quot;);
+scanf(&quot;%99s&quot;, password);
+printf(&quot;Displayed password: &quot;);
+
+for (i = 0; password[i] != &#x27;\0&#x27;; i++)
+printf(&quot;*&quot;);
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter password: tiger123
+Displayed password: ********</code></pre></div>
+</section>
+<section class="program">
+<h3>13. Read two characters and print their ASCII values.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char a, b;
+printf(&quot;Enter two characters: &quot;);
+scanf(&quot; %c %c&quot;, &amp;a, &amp;b);
+printf(&quot;ASCII of %c = %d\n&quot;, a, (unsigned char)a);
+printf(&quot;ASCII of %c = %d\n&quot;, b, (unsigned char)b);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter two characters: A z
+ASCII of A = 65
+ASCII of z = 122</code></pre></div>
+</section>
+<section class="program">
+<h3>14. Print ASCII codes from 0 to 127.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int i;
+for (i = 0; i &lt;= 127; i++)
+{
+if (i &gt;= 32 &amp;&amp; i &lt;= 126)
+printf(&quot;%3d : %c\n&quot;, i, i);
+else
+printf(&quot;%3d : non-printable/control character\n&quot;, i);
+}
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>0 : non-printable/control character
+1 : non-printable/control character
+...
+65 : A
+...
+127 : non-printable/control character</code></pre></div>
+</section>
+</div></details>
+<details>
+<summary>Operators</summary>
+<div class="topic-content">
+<section class="program">
+<h3>1. Demonstrate pre-increment.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int x = 5;
+printf(&quot;%d\n&quot;, ++x);
+printf(&quot;x = %d\n&quot;, x);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>6
+x=6</code></pre></div>
+</section>
+<section class="program">
+<h3>2. Demonstrate post-increment.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int x = 5;
+printf(&quot;%d\n&quot;, x++);
+printf(&quot;x = %d\n&quot;, x);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>5
+x=6</code></pre></div>
+</section>
+<section class="program">
+<h3>3. Demonstrate pre-decrement.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int x = 5;
+printf(&quot;%d\n&quot;, --x);
+printf(&quot;x = %d\n&quot;, x);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>4
+x=4</code></pre></div>
+</section>
+<section class="program">
+<h3>4. Demonstrate post-decrement.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int x = 5;
+printf(&quot;%d\n&quot;, x--);
+printf(&quot;x = %d\n&quot;, x);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>5
+x=4</code></pre></div>
+</section>
+<section class="program">
+<h3>5. Read two numbers and demonstrate arithmetic operators.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+
+{
+int a, b;
+printf(&quot;Enter two integers: &quot;);
+scanf(&quot;%d%d&quot;, &amp;a, &amp;b);
+printf(&quot;Addition = %d\n&quot;, a + b);
+printf(&quot;Subtraction = %d\n&quot;, a - b);
+printf(&quot;Multiplication = %d\n&quot;, a * b);
+if (b != 0)
+{
+printf(&quot;Division = %d\n&quot;, a / b);
+printf(&quot;Remainder = %d\n&quot;, a % b);
+}
+else
+printf(&quot;Division and remainder are undefined when the second number is zero.\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter two integers: 17 5
+Addition = 22
+Subtraction = 12
+Multiplication = 85
+Division = 3
+Remainder = 2</code></pre></div>
+</section>
+<section class="program">
+<h3>6. Print the last digit of a number.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n;
+printf(&quot;Enter a number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+printf(&quot;Last digit = %d\n&quot;, n % 10);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number: 12345
+Last digit = 5</code></pre></div>
+</section>
+<section class="program">
+<h3>7. Print the two digits to the right of the decimal point.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+double n;
+int cents;
+printf(&quot;Enter a decimal number (up to 2 decimal places): &quot;);
+scanf(&quot;%lf&quot;, &amp;n);
+cents = (int)(n * 100 + (n &gt;= 0 ? 0.5 : -0.5)) % 100;
+if (cents &lt; 0) cents = -cents;
+printf(&quot;Digits on right side = %02d\n&quot;, cents);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a decimal number (up to 2 decimal places): 45.67
+Digits on right side = 67</code></pre></div>
+</section>
+<section class="program">
+<h3>8. Find the cube of a number.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n;
+printf(&quot;Enter a number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+
+
+printf(&quot;Cube = %d\n&quot;, n * n * n);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number: 3
+Cube = 27</code></pre></div>
+</section>
+<section class="program">
+<h3>9. Round a floating-point number to the nearest integer.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+double n;
+int rounded;
+printf(&quot;Enter a number: &quot;);
+scanf(&quot;%lf&quot;, &amp;n);
+if (n &gt;= 0)
+rounded = (int)(n + 0.5);
+else
+rounded = (int)(n - 0.5);
+printf(&quot;Rounded value = %d\n&quot;, rounded);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number: 7.6
+Rounded value = 8</code></pre></div>
+</section>
+<section class="program">
+<h3>10. Convert a lowercase character to uppercase.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char ch;
+printf(&quot;Enter a lowercase character: &quot;);
+scanf(&quot; %c&quot;, &amp;ch);
+if (ch &gt;= &#x27;a&#x27; &amp;&amp; ch &lt;= &#x27;z&#x27;)
+ch = ch - &#x27;a&#x27; + &#x27;A&#x27;;
+printf(&quot;Uppercase = %c\n&quot;, ch);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a lowercase character: g
+Uppercase = G</code></pre></div>
+</section>
+<section class="program">
+<h3>11. Enter five subject marks and calculate their average.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+float m1, m2, m3, m4, m5, average;
+printf(&quot;Enter marks for five subjects: &quot;);
+scanf(&quot;%f%f%f%f%f&quot;, &amp;m1, &amp;m2, &amp;m3, &amp;m4, &amp;m5);
+average = (m1 + m2 + m3 + m4 + m5) / 5;
+printf(&quot;Average = %.2f\n&quot;, average);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter marks for five subjects: 80 70 90 60 100
+Average = 80.00</code></pre></div>
+</section>
+<section class="program">
+<h3>12. Calculate simple interest.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+float p, r, t, interest;
+printf(&quot;Enter principal, rate and time: &quot;);
+
+scanf(&quot;%f%f%f&quot;, &amp;p, &amp;r, &amp;t);
+interest = (p * r * t) / 100;
+printf(&quot;Simple interest = %.2f\n&quot;, interest);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter principal, rate and time: 1000 5 2
+Simple interest = 100.00</code></pre></div>
+</section>
+</div></details>
+<details>
+<summary>Decision Control Structure</summary>
+<div class="topic-content">
+<section class="program">
+<h3>1. Check whether a number is positive, negative or zero.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n;
+printf(&quot;Enter a number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+if (n &gt; 0) printf(&quot;Positive\n&quot;);
+else if (n &lt; 0) printf(&quot;Negative\n&quot;);
+else printf(&quot;Zero\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number: -4
+Negative</code></pre></div>
+</section>
+<section class="program">
+<h3>2. Check whether a number is odd or even.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n;
+printf(&quot;Enter a number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+if (n % 2 == 0) printf(&quot;Even\n&quot;);
+else printf(&quot;Odd\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number: 13
+Odd</code></pre></div>
+</section>
+<section class="program">
+<h3>3. Check whether a number has 1, 2, 3, 4 or 5 digits.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n;
+printf(&quot;Enter a number from 0 to 99999: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+if (n &lt; 0) n = -n;
+if (n &lt; 10) printf(&quot;1 digit\n&quot;);
+else if (n &lt; 100) printf(&quot;2 digits\n&quot;);
+else if (n &lt; 1000) printf(&quot;3 digits\n&quot;);
+else if (n &lt; 10000) printf(&quot;4 digits\n&quot;);
+else if (n &lt; 100000) printf(&quot;5 digits\n&quot;);
+else printf(&quot;More than 5 digits\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number from 0 to 99999: 537
+3 digits</code></pre></div>
+</section>
+<section class="program">
+<h3>4. Print a grade from marks.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int marks;
+printf(&quot;Enter marks (0-100): &quot;);
+scanf(&quot;%d&quot;, &amp;marks);
+if (marks &lt; 0 || marks &gt; 100) printf(&quot;Invalid marks\n&quot;);
+else if (marks &lt; 40) printf(&quot;Fail\n&quot;);
+
+
+else if (marks &lt; 60) printf(&quot;C grade\n&quot;);
+else if (marks &lt; 80) printf(&quot;B grade\n&quot;);
+else printf(&quot;A grade\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter marks (0-100): 72
+B grade</code></pre></div>
+</section>
+<section class="program">
+<h3>5. Check whether a numeric input has a fractional part.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+double n;
+printf(&quot;Enter a number: &quot;);
+scanf(&quot;%lf&quot;, &amp;n);
+if (n != (int)n) printf(&quot;It has a fractional part\n&quot;);
+else printf(&quot;It is a whole number\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number: 8.25
+It has a fractional part</code></pre></div>
+</section>
+<section class="program">
+<h3>6. Change a negative number to positive and a positive number to negative.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n;
+printf(&quot;Enter a number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+if (n &lt; 0) n = -n;
+else if (n &gt; 0) n = -n;
+printf(&quot;Result = %d\n&quot;, n);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number: 7
+Result = -7</code></pre></div>
+</section>
+<section class="program">
+<h3>7. Check whether a character is an alphabet.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char ch;
+printf(&quot;Enter a character: &quot;);
+scanf(&quot; %c&quot;, &amp;ch);
+if ((ch &gt;= &#x27;A&#x27; &amp;&amp; ch &lt;= &#x27;Z&#x27;) || (ch &gt;= &#x27;a&#x27; &amp;&amp; ch &lt;= &#x27;z&#x27;))
+printf(&quot;Alphabet\n&quot;);
+else
+printf(&quot;Not an alphabet\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a character: G
+Alphabet</code></pre></div>
+</section>
+<section class="program">
+<h3>8. Square a negative number; increase a positive number 20 times.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n, i;
+printf(&quot;Enter a number: &quot;);
+
+scanf(&quot;%d&quot;, &amp;n);
+if (n &lt; 0)
+printf(&quot;Square = %d\n&quot;, n * n);
+else if (n &gt; 0)
+{
+for (i = 0; i &lt; 20; i++) n++;
+printf(&quot;After 20 increments = %d\n&quot;, n);
+}
+else printf(&quot;Number is zero\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number: 3
+After 20 increments = 23</code></pre></div>
+</section>
+<section class="program">
+<h3>9. Classify a number as positive, negative or zero.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n;
+printf(&quot;Enter a number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+if (n &gt; 0) printf(&quot;Positive\n&quot;);
+else if (n &lt; 0) printf(&quot;Negative\n&quot;);
+else printf(&quot;Zero\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number: 0
+Zero</code></pre></div>
+</section>
+<section class="program">
+<h3>10. Read two numbers and print the greater number.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a, b;
+printf(&quot;Enter two numbers: &quot;);
+scanf(&quot;%d%d&quot;, &amp;a, &amp;b);
+if (a &gt; b) printf(&quot;Greater = %d\n&quot;, a);
+else if (b &gt; a) printf(&quot;Greater = %d\n&quot;, b);
+else printf(&quot;Both numbers are equal\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter two numbers: 12 8
+Greater = 12</code></pre></div>
+</section>
+<section class="program">
+<h3>11. Check whether a number is divisible by 4.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n;
+printf(&quot;Enter a number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+if (n % 4 == 0) printf(&quot;Divisible by 4\n&quot;);
+else printf(&quot;Not divisible by 4\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number: 28
+Divisible by 4</code></pre></div>
+</section>
+<section class="program">
+<h3>12. Read four characters and check whether all are equal.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char a, b, c, d;
+printf(&quot;Enter four characters: &quot;);
+scanf(&quot; %c %c %c %c&quot;, &amp;a, &amp;b, &amp;c, &amp;d);
+if (a == b &amp;&amp; b == c &amp;&amp; c == d) printf(&quot;All are equal\n&quot;);
+else printf(&quot;They are not all equal\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter four characters: a a a a
+All are equal</code></pre></div>
+</section>
+<section class="program">
+<h3>13. Find the greatest of three numbers.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a, b, c;
+printf(&quot;Enter three numbers: &quot;);
+scanf(&quot;%d%d%d&quot;, &amp;a, &amp;b, &amp;c);
+if (a &gt;= b &amp;&amp; a &gt;= c) printf(&quot;Greatest = %d\n&quot;, a);
+else if (b &gt;= a &amp;&amp; b &gt;= c) printf(&quot;Greatest = %d\n&quot;, b);
+else printf(&quot;Greatest = %d\n&quot;, c);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter three numbers: 8 14 11
+Greatest = 14</code></pre></div>
+</section>
+<section class="program">
+<h3>14. Print months according to the number of days.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int days;
+printf(&quot;Enter number of days (28, 29, 30 or 31): &quot;);
+scanf(&quot;%d&quot;, &amp;days);
+if (days == 30) printf(&quot;April, June, September, November\n&quot;);
+else if (days == 31) printf(&quot;January, March, May, July, August, October, December\n&quot;);
+else if (days == 28 || days == 29) printf(&quot;February\n&quot;);
+else printf(&quot;Invalid\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter number of days (28, 29, 30 or 31): 30
+April, June, September, November</code></pre></div>
+</section>
+<section class="program">
+<h3>15. Print a single-digit number in words.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n;
+const char *word[] = {&quot;ZERO&quot;, &quot;ONE&quot;, &quot;TWO&quot;, &quot;THREE&quot;, &quot;FOUR&quot;, &quot;FIVE&quot;, &quot;SIX&quot;, &quot;SEVEN&quot;, &quot;EIGHT&quot;, &quot;NINE&quot;};
+printf(&quot;Enter a digit (0-9): &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+if (n &gt;= 0 &amp;&amp; n &lt;= 9) printf(&quot;%s\n&quot;, word[n]);
+else printf(&quot;Invalid digit\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a digit (0-9): 7
+SEVEN</code></pre></div>
+</section>
+<section class="program">
+<h3>16. Check two characters; if different, print their ASCII difference.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char a, b;
+int diff;
+printf(&quot;Enter two characters: &quot;);
+scanf(&quot; %c %c&quot;, &amp;a, &amp;b);
+if (a == b) printf(&quot;Characters are same\n&quot;);
+else
+{
+diff = (int)a - (int)b;
+if (diff &lt; 0) diff = -diff;
+printf(&quot;Difference = %d\n&quot;, diff);
+}
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter two characters: A D
+Difference = 3</code></pre></div>
+</section>
+<section class="program">
+<h3>17. Find the greatest of three numbers (duplicate exercise).</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a, b, c;
+printf(&quot;Enter three numbers: &quot;);
+scanf(&quot;%d%d%d&quot;, &amp;a, &amp;b, &amp;c);
+if (a &gt;= b &amp;&amp; a &gt;= c) printf(&quot;Greatest = %d\n&quot;, a);
+else if (b &gt;= a &amp;&amp; b &gt;= c) printf(&quot;Greatest = %d\n&quot;, b);
+else printf(&quot;Greatest = %d\n&quot;, c);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter three numbers: 3 9 6
+Greatest = 9</code></pre></div>
+</section>
+<section class="program">
+<h3>18. Print each digit of a two-digit number in words.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n;
+const char *word[] = {&quot;ZERO&quot;, &quot;ONE&quot;, &quot;TWO&quot;, &quot;THREE&quot;, &quot;FOUR&quot;, &quot;FIVE&quot;, &quot;SIX&quot;, &quot;SEVEN&quot;, &quot;EIGHT&quot;, &quot;NINE&quot;};
+printf(&quot;Enter a two-digit number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+if (n &gt;= 10 &amp;&amp; n &lt;= 99)
+printf(&quot;%s %s\n&quot;, word[n / 10], word[n % 10]);
+else printf(&quot;Please enter a number from 10 to 99\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a two-digit number: 50
+FIVE ZERO</code></pre></div>
+</section>
+<section class="program">
+<h3>19. Classify a character as uppercase, lowercase, digit or special character.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char ch;
+printf(&quot;Enter a character: &quot;);
+scanf(&quot; %c&quot;, &amp;ch);
+if (ch &gt;= &#x27;A&#x27; &amp;&amp; ch &lt;= &#x27;Z&#x27;) printf(&quot;Uppercase letter\n&quot;);
+else if (ch &gt;= &#x27;a&#x27; &amp;&amp; ch &lt;= &#x27;z&#x27;) printf(&quot;Lowercase letter\n&quot;);
+
+
+else if (ch &gt;= &#x27;0&#x27; &amp;&amp; ch &lt;= &#x27;9&#x27;) printf(&quot;Digit\n&quot;);
+else printf(&quot;Special character\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a character: 7
+Digit</code></pre></div>
+</section>
+<section class="program">
+<h3>20. Check whether a year is a leap year.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int year;
+printf(&quot;Enter year: &quot;);
+scanf(&quot;%d&quot;, &amp;year);
+if (year % 400 == 0 || (year % 4 == 0 &amp;&amp; year % 100 != 0))
+printf(&quot;Leap year\n&quot;);
+else printf(&quot;Not a leap year\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter year: 2024
+Leap year</code></pre></div>
+</section>
+<section class="program">
+<h3>21. Check whether a date is valid.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int d, m, y, maxdays, leap;
+printf(&quot;Enter day month year: &quot;);
+scanf(&quot;%d%d%d&quot;, &amp;d, &amp;m, &amp;y);
+leap = (y % 400 == 0 || (y % 4 == 0 &amp;&amp; y % 100 != 0));
+if (m == 2) maxdays = leap ? 29 : 28;
+else if (m == 4 || m == 6 || m == 9 || m == 11) maxdays = 30;
+else if (m &gt;= 1 &amp;&amp; m &lt;= 12) maxdays = 31;
+else maxdays = 0;
+if (y &gt; 0 &amp;&amp; d &gt;= 1 &amp;&amp; d &lt;= maxdays) printf(&quot;Valid date\n&quot;);
+else printf(&quot;Invalid date\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter day month year: 29 2 2024
+Valid date</code></pre></div>
+</section>
+<section class="program">
+<h3>22. Calculate the difference between current date and date of birth.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int cd, cm, cy, bd, bm, by, days, mdays[13] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+int years, months, ageDays;
+printf(&quot;Enter current date (day month year): &quot;);
+scanf(&quot;%d%d%d&quot;, &amp;cd, &amp;cm, &amp;cy);
+printf(&quot;Enter date of birth (day month year): &quot;);
+scanf(&quot;%d%d%d&quot;, &amp;bd, &amp;bm, &amp;by);
+if (cy &lt;= by || cm &lt; 1 || cm &gt; 12 || bm &lt; 1 || bm &gt; 12 || cd &lt; 1 || cd &gt; 31 || bd &lt; 1 || bd &gt; 31)
+{
+printf(&quot;Check the dates entered.\n&quot;);
+return 0;
+}
+if (cy % 400 == 0 || (cy % 4 == 0 &amp;&amp; cy % 100 != 0)) mdays[2] = 29;
+if (cd &lt; bd)
+{
+
+cm--;
+if (cm == 0) { cm = 12; cy--; }
+days = mdays[cm];
+if (cm == 2 &amp;&amp; (cy % 400 == 0 || (cy % 4 == 0 &amp;&amp; cy % 100 != 0))) days = 29;
+cd += days;
+}
+if (cm &lt; bm) { cm += 12; cy--; }
+ageDays = cd - bd;
+months = cm - bm;
+years = cy - by;
+printf(&quot;Age = %d years, %d months and %d days\n&quot;, years, months, ageDays);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter current date (day month year): 23 10 2026
+Enter date of birth (day month year): 9 9 2008
+Age = 18 years, 1 months and 14 days</code></pre></div>
+</section>
+<section class="program">
+<h3>23. Calculate the area and perimeter of a rectangle.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+float length, width;
+printf(&quot;Enter length and width: &quot;);
+scanf(&quot;%f%f&quot;, &amp;length, &amp;width);
+printf(&quot;Area = %.2f\n&quot;, length * width);
+printf(&quot;Perimeter = %.2f\n&quot;, 2 * (length + width));
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter length and width: 5 3
+Area = 15.00
+Perimeter = 16.00</code></pre></div>
+</section>
+</div></details>
+<details>
+<summary>Iterative Control Structure (Loops)</summary>
+<div class="topic-content">
+<section class="program">
+<h3>1. Convert a non-negative integer to binary.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n, bits[32], count = 0, i;
+printf(&quot;Enter a non-negative number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+if (n == 0) printf(&quot;Binary = 0\n&quot;);
+else if (n &lt; 0) printf(&quot;Please enter a non-negative number.\n&quot;);
+else
+{
+while (n &gt; 0)
+{
+bits[count] = n % 2;
+count++;
+n = n / 2;
+}
+printf(&quot;Binary = &quot;);
+for (i = count - 1; i &gt;= 0; i--) printf(&quot;%d&quot;, bits[i]);
+printf(&quot;\n&quot;);
+}
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a non-negative number: 13
+Binary = 1101</code></pre></div>
+</section>
+<section class="program">
+<h3>2. Check whether a number is divisible by a prime factor.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n, i, found = 0;
+printf(&quot;Enter an integer greater than 1: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+for (i = 2; i &lt; n; i++)
+{
+if (n % i == 0)
+{
+found = 1;
+break;
+}
+}
+if (n &gt; 2 &amp;&amp; found == 1) printf(&quot;It is divisible by a prime factor\n&quot;);
+else if (n &gt; 1) printf(&quot;It has no smaller divisor\n&quot;);
+else printf(&quot;Please enter a number greater than 1\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter an integer greater than 1: 21
+It is divisible by a prime factor</code></pre></div>
+</section>
+<section class="program">
+<h3>3. Check whether a number is prime.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n, i, prime = 1;
+printf(&quot;Enter a number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+if (n &lt; 2) prime = 0;
+
+
+for (i = 2; i * i &lt;= n; i++)
+if (n % i == 0) { prime = 0; break; }
+if (prime) printf(&quot;Prime number\n&quot;);
+else printf(&quot;Not a prime number\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number: 17
+Prime number</code></pre></div>
+</section>
+<section class="program">
+<h3>4. Print every digit of a number on a separate line, in the original order.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n, digits[20], count = 0, i;
+printf(&quot;Enter a non-negative number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+if (n == 0) printf(&quot;0\n&quot;);
+else
+{
+while (n &gt; 0) { digits[count] = n % 10; count++; n /= 10; }
+for (i = count - 1; i &gt;= 0; i--) printf(&quot;%d\n&quot;, digits[i]);
+}
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a non-negative number: 482
+4
+8
+2</code></pre></div>
+</section>
+<section class="program">
+<h3>5. Print your name 100,000 times.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char name[50];
+int i;
+printf(&quot;Enter your name: &quot;);
+scanf(&quot;%49s&quot;, name);
+for (i = 1; i &lt;= 100000; i++) printf(&quot;%s\n&quot;, name);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter your name: Sara
+Sara
+Sara
+Sara
+... (continues until printed 100,000 times)</code></pre></div>
+</section>
+<section class="program">
+<h3>6. Print numbers from 1 to 100,000.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int i;
+for (i = 1; i &lt;= 100000; i++) printf(&quot;%d &quot;, i);
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>1 2 3 4 5 6 7 8 9 10 ... 99999 100000</code></pre></div>
+</section>
+<section class="program">
+<h3>7. Print numbers from 1 to a user-entered number.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n, i;
+printf(&quot;Enter a positive number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+for (i = 1; i &lt;= n; i++) printf(&quot;%d &quot;, i);
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a positive number: 6
+123456</code></pre></div>
+</section>
+<section class="program">
+<h3>8. Print a user-entered number 100 times.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n, i;
+printf(&quot;Enter a number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+for (i = 0; i &lt; 100; i++) printf(&quot;%d &quot;, n);
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number: 7
+7 7 7 7 7 ... (100 times)</code></pre></div>
+</section>
+<section class="program">
+<h3>9. Print odd numbers from 1 to 100.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int i;
+for (i = 1; i &lt;= 100; i += 2) printf(&quot;%d &quot;, i);
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>1 3 5 7 9 11 ... 97 99</code></pre></div>
+</section>
+<section class="program">
+<h3>10. Print the multiplication table of 4 up to 20.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int i;
+for (i = 1; i &lt;= 20; i++) printf(&quot;4 * %d = %d\n&quot;, i, 4 * i);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>4*1=4
+4*2=8
+4 * 3 = 12
+...
+4 * 20 = 80</code></pre></div>
+</section>
+<section class="program">
+<h3>11. Reverse a number.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n, digit, reverse = 0;
+
+
+printf(&quot;Enter a non-negative number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+while (n &gt; 0)
+{
+digit = n % 10;
+reverse = reverse * 10 + digit;
+n = n / 10;
+}
+printf(&quot;Reversed number = %d\n&quot;, reverse);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a non-negative number: 1234
+Reversed number = 4321</code></pre></div>
+</section>
+<section class="program">
+<h3>12. Make a menu calculator that exits when the user enters Q.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char choice;
+int a, b;
+while (1)
+{
+printf(&quot;1 Add 2 Subtract 3 Multiply 4 Divide 5 Remainder Q Quit\n&quot;);
+printf(&quot;Enter choice: &quot;);
+scanf(&quot; %c&quot;, &amp;choice);
+if (choice == &#x27;Q&#x27; || choice == &#x27;q&#x27;) break;
+if (choice &gt;= &#x27;1&#x27; &amp;&amp; choice &lt;= &#x27;5&#x27;)
+{
+printf(&quot;Enter two integers: &quot;);
+scanf(&quot;%d%d&quot;, &amp;a, &amp;b);
+if (choice == &#x27;1&#x27;) printf(&quot;Answer = %d\n&quot;, a + b);
+else if (choice == &#x27;2&#x27;) printf(&quot;Answer = %d\n&quot;, a - b);
+else if (choice == &#x27;3&#x27;) printf(&quot;Answer = %d\n&quot;, a * b);
+else if (b == 0) printf(&quot;Cannot divide by zero.\n&quot;);
+else if (choice == &#x27;4&#x27;) printf(&quot;Answer = %d\n&quot;, a / b);
+else printf(&quot;Answer = %d\n&quot;, a % b);
+}
+else printf(&quot;Invalid choice\n&quot;);
+}
+printf(&quot;Program ended.\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>1 Add 2 Subtract 3 Multiply 4 Divide 5 Remainder Q Quit
+Enter choice: 1
+Enter two integers: 8 3
+Answer = 11
+...
+Enter choice: Q
+Program ended.</code></pre></div>
+</section>
+<section class="program">
+<h3>13. Check whether a number is a palindrome.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n, original, digit, reverse = 0;
+printf(&quot;Enter a non-negative number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+original = n;
+while (n &gt; 0) { digit = n % 10; reverse = reverse * 10 + digit; n /= 10; }
+if (original == reverse) printf(&quot;Palindrome\n&quot;);
+else printf(&quot;Not a palindrome\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a non-negative number: 1221
+Palindrome</code></pre></div>
+</section>
+<section class="program">
+<h3>14. Calculate a base raised to a power.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int base, power, i;
+long long result = 1;
+printf(&quot;Enter base and non-negative power: &quot;);
+scanf(&quot;%d%d&quot;, &amp;base, &amp;power);
+if (power &lt; 0) printf(&quot;Use a non-negative power.\n&quot;);
+else
+{
+for (i = 0; i &lt; power; i++) result *= base;
+printf(&quot;Result = %lld\n&quot;, result);
+}
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter base and non-negative power: 2 5
+Result = 32</code></pre></div>
+</section>
+<section class="program">
+<h3>15. Print the first digit of a positive number.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n;
+printf(&quot;Enter a positive number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+if (n &lt; 0) n = -n;
+while (n &gt;= 10) n = n / 10;
+printf(&quot;First digit = %d\n&quot;, n);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a positive number: 5284
+First digit = 5</code></pre></div>
+</section>
+<section class="program">
+<h3>16. Find the sum of numbers from 0 to n.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n, i, sum = 0;
+printf(&quot;Enter a non-negative number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+for (i = 0; i &lt;= n; i++) sum += i;
+printf(&quot;Sum = %d\n&quot;, sum);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a non-negative number: 5
+Sum = 15</code></pre></div>
+</section>
+<section class="program">
+<h3>17. Find the factorial of a number.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n, i;
+unsigned long long fact = 1;
+printf(&quot;Enter a number from 0 to 20: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+
+
+if (n &lt; 0 || n &gt; 20) printf(&quot;Number is outside the supported range.\n&quot;);
+else
+{
+for (i = 1; i &lt;= n; i++) fact *= i;
+printf(&quot;Factorial = %llu\n&quot;, fact);
+}
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number from 0 to 20: 5
+Factorial = 120</code></pre></div>
+</section>
+<section class="program">
+<h3>18. Print the range between two numbers.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int first, last, i;
+printf(&quot;Enter first and second number: &quot;);
+scanf(&quot;%d%d&quot;, &amp;first, &amp;last);
+if (first &lt;= last)
+for (i = first; i &lt;= last; i++) printf(&quot;%d &quot;, i);
+else
+for (i = first; i &gt;= last; i--) printf(&quot;%d &quot;, i);
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter first and second number: 5 9
+56789</code></pre></div>
+</section>
+<section class="program">
+<h3>19. Read passwords until an empty line is entered; show asterisks.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main(void)
+{
+char password[21];
+int i;
+while (1)
+{
+printf(&quot;Enter password (press Enter to quit): &quot;);
+if (fgets(password, sizeof(password), stdin) == NULL) break;
+if (password[0] == &#x27;\n&#x27;) break;
+password[strcspn(password, &quot;\n&quot;)] = &#x27;\0&#x27;;
+for (i = 0; password[i] != &#x27;\0&#x27;; i++) printf(&quot;*&quot;);
+printf(&quot;\n&quot;);
+}
+printf(&quot;Exited.\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter password (press Enter to quit): tiger
+*****
+Enter password (press Enter to quit):
+Exited.</code></pre></div>
+</section>
+<section class="program">
+<h3>20. Print counting from 1 to 100 with about a one-second delay.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;time.h&gt;
+int main(void)
+{
+
+
+int i;
+for (i = 1; i &lt;= 100; i++)
+{
+clock_t start = clock();
+printf(&quot;%d\n&quot;, i);
+while ((double)(clock() - start) / CLOCKS_PER_SEC &lt; 1.0) { }
+}
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>1
+2
+3
+...
+100</code></pre></div>
+</section>
+<section class="program">
+<h3>21. Print the Fibonacci series up to 100.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a = 0, b = 1, c;
+printf(&quot;%d %d &quot;, a, b);
+c = a + b;
+while (c &lt;= 100)
+{
+printf(&quot;%d &quot;, c);
+a = b; b = c; c = a + b;
+}
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>0 1 1 2 3 5 8 13 21 34 55 89</code></pre></div>
+</section>
+<section class="program">
+<h3>22. Check whether a character is an alphabet.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char ch;
+printf(&quot;Enter a character: &quot;);
+scanf(&quot; %c&quot;, &amp;ch);
+if ((ch &gt;= &#x27;A&#x27; &amp;&amp; ch &lt;= &#x27;Z&#x27;) || (ch &gt;= &#x27;a&#x27; &amp;&amp; ch &lt;= &#x27;z&#x27;))
+printf(&quot;Alphabet\n&quot;);
+else printf(&quot;Not an alphabet\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a character: z
+Alphabet</code></pre></div>
+</section>
+<section class="program">
+<h3>23. Check whether a number is a palindrome (duplicate exercise).</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n, original, reverse = 0, digit;
+printf(&quot;Enter a non-negative number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+original = n;
+while (n &gt; 0) { digit = n % 10; reverse = reverse * 10 + digit; n /= 10; }
+if (original == reverse) printf(&quot;Palindrome\n&quot;);
+else printf(&quot;Not a palindrome\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a non-negative number: 121
+Palindrome</code></pre></div>
+</section>
+<section class="program">
+<h3>24. Check whether a three-digit number is an Armstrong number.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n, original, digit, sum = 0;
+printf(&quot;Enter a three-digit number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+original = n;
+while (n &gt; 0) { digit = n % 10; sum += digit * digit * digit; n /= 10; }
+if (sum == original) printf(&quot;Armstrong number\n&quot;);
+else printf(&quot;Not an Armstrong number\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a three-digit number: 153
+Armstrong number</code></pre></div>
+</section>
+<section class="program">
+<h3>25. Check whether a three-digit number is an Armstrong number (duplicate exercise).</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int n, original, digit, sum = 0;
+printf(&quot;Enter a three-digit number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+original = n;
+while (n &gt; 0) { digit = n % 10; sum += digit * digit * digit; n /= 10; }
+if (sum == original) printf(&quot;Armstrong number\n&quot;);
+else printf(&quot;Not an Armstrong number\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a three-digit number: 370
+Armstrong number</code></pre></div>
+</section>
+</div></details>
+<details>
+<summary>Single-Dimensional Arrays</summary>
+<div class="topic-content">
+<section class="program">
+<h3>1. Enter an array and display all values.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[5], i;
+printf(&quot;Enter five values: &quot;);
+for (i = 0; i &lt; 5; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+printf(&quot;Array: &quot;);
+for (i = 0; i &lt; 5; i++) printf(&quot;%d &quot;, a[i]);
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter five values: 4 7 2 9 1
+Array: 4 7 2 9 1</code></pre></div>
+</section>
+<section class="program">
+<h3>2. Print an array in reverse order.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[5], i;
+printf(&quot;Enter five values: &quot;);
+for (i = 0; i &lt; 5; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+for (i = 4; i &gt;= 0; i--) printf(&quot;%d &quot;, a[i]);
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter five values: 1 2 3 4 5
+54321</code></pre></div>
+</section>
+<section class="program">
+<h3>3. Copy one array into a second array.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[5], b[5], i;
+printf(&quot;Enter five values: &quot;);
+for (i = 0; i &lt; 5; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+for (i = 0; i &lt; 5; i++) b[i] = a[i];
+printf(&quot;Copied array: &quot;);
+for (i = 0; i &lt; 5; i++) printf(&quot;%d &quot;, b[i]);
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter five values: 2 4 6 8 10
+Copied array: 2 4 6 8 10</code></pre></div>
+</section>
+<section class="program">
+<h3>4. Copy an array into another array in reverse order.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[5], b[5], i;
+printf(&quot;Enter five values: &quot;);
+for (i = 0; i &lt; 5; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+for (i = 0; i &lt; 5; i++) b[i] = a[4 - i];
+printf(&quot;Reverse copy: &quot;);
+for (i = 0; i &lt; 5; i++) printf(&quot;%d &quot;, b[i]);
+printf(&quot;\n&quot;);
+
+
+
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter five values: 1 2 3 4 5
+Reverse copy: 5 4 3 2 1</code></pre></div>
+</section>
+<section class="program">
+<h3>5. Print even numbers in an array.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[5], i;
+printf(&quot;Enter five values: &quot;);
+for (i = 0; i &lt; 5; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+printf(&quot;Even values: &quot;);
+for (i = 0; i &lt; 5; i++) if (a[i] % 2 == 0) printf(&quot;%d &quot;, a[i]);
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter five values: 3 8 11 14 20
+Even values: 8 14 20</code></pre></div>
+</section>
+<section class="program">
+<h3>6. Print positive numbers in an array.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[5], i;
+printf(&quot;Enter five values: &quot;);
+for (i = 0; i &lt; 5; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+printf(&quot;Positive values: &quot;);
+for (i = 0; i &lt; 5; i++) if (a[i] &gt; 0) printf(&quot;%d &quot;, a[i]);
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter five values: -2 4 0 7 -9
+Positive values: 4 7</code></pre></div>
+</section>
+<section class="program">
+<h3>7. Square every value in an array and print the results.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[5], i;
+printf(&quot;Enter five values: &quot;);
+for (i = 0; i &lt; 5; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+printf(&quot;Squares: &quot;);
+for (i = 0; i &lt; 5; i++) printf(&quot;%d &quot;, a[i] * a[i]);
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter five values: 1 2 3 4 5
+Squares: 1 4 9 16 25</code></pre></div>
+</section>
+<section class="program">
+<h3>8. Print odd numbers from five array values.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[5], i;
+printf(&quot;Enter five values: &quot;);
+for (i = 0; i &lt; 5; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+printf(&quot;Odd values: &quot;);
+for (i = 0; i &lt; 5; i++) if (a[i] % 2 != 0) printf(&quot;%d &quot;, a[i]);
+
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter five values: 1 4 7 8 9
+Odd values: 1 7 9</code></pre></div>
+</section>
+<section class="program">
+<h3>9. Add five array values.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[5], i, sum = 0;
+printf(&quot;Enter five values: &quot;);
+for (i = 0; i &lt; 5; i++) { scanf(&quot;%d&quot;, &amp;a[i]); sum += a[i]; }
+printf(&quot;Sum = %d\n&quot;, sum);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter five values: 1 2 3 4 5
+Sum = 15</code></pre></div>
+</section>
+<section class="program">
+<h3>10. Search for a value in an array.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[5], i, value, found = 0;
+printf(&quot;Enter five values: &quot;);
+for (i = 0; i &lt; 5; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+printf(&quot;Value to search: &quot;);
+scanf(&quot;%d&quot;, &amp;value);
+for (i = 0; i &lt; 5; i++)
+if (a[i] == value) { found = 1; break; }
+if (found) printf(&quot;Found\n&quot;); else printf(&quot;Not found\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter five values: 3 6 9 12 15
+Value to search: 9
+Found</code></pre></div>
+</section>
+<section class="program">
+<h3>11. Sort five array values in ascending order.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[5], i, j, temp;
+printf(&quot;Enter five values: &quot;);
+for (i = 0; i &lt; 5; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+for (i = 0; i &lt; 4; i++)
+for (j = 0; j &lt; 4 - i; j++)
+if (a[j] &gt; a[j + 1]) { temp = a[j]; a[j] = a[j + 1]; a[j + 1] = temp; }
+printf(&quot;Ascending order: &quot;);
+for (i = 0; i &lt; 5; i++) printf(&quot;%d &quot;, a[i]);
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter five values: 8 3 9 1 5
+Ascending order: 1 3 5 8 9</code></pre></div>
+</section>
+<section class="program">
+<h3>12. Find the maximum value in an array.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+
+int a[5], i, max;
+printf(&quot;Enter five values: &quot;);
+for (i = 0; i &lt; 5; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+max = a[0];
+for (i = 1; i &lt; 5; i++) if (a[i] &gt; max) max = a[i];
+printf(&quot;Maximum = %d\n&quot;, max);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter five values: 8 3 19 1 5
+Maximum = 19</code></pre></div>
+</section>
+<section class="program">
+<h3>13. Find the minimum value in an array.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[5], i, min;
+printf(&quot;Enter five values: &quot;);
+for (i = 0; i &lt; 5; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+min = a[0];
+for (i = 1; i &lt; 5; i++) if (a[i] &lt; min) min = a[i];
+printf(&quot;Minimum = %d\n&quot;, min);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter five values: 8 3 19 1 5
+Minimum = 1</code></pre></div>
+</section>
+</div></details>
+<details>
+<summary>Functions</summary>
+<div class="topic-content">
+<section class="program">
+<h3>1. Use functions to perform arithmetic operations on two numbers.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int add(int a, int b) { return a + b; }
+int subtract(int a, int b) { return a - b; }
+int multiply(int a, int b) { return a * b; }
+int main(void)
+{
+int a, b;
+printf(&quot;Enter two integers: &quot;);
+scanf(&quot;%d%d&quot;, &amp;a, &amp;b);
+printf(&quot;Addition = %d\n&quot;, add(a, b));
+printf(&quot;Subtraction = %d\n&quot;, subtract(a, b));
+printf(&quot;Multiplication = %d\n&quot;, multiply(a, b));
+if (b != 0) printf(&quot;Division = %.2f\n&quot;, (double)a / b);
+else printf(&quot;Cannot divide by zero.\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter two integers: 12 4
+Addition = 16
+Subtraction = 8
+Multiplication = 48
+Division = 3.00</code></pre></div>
+</section>
+<section class="program">
+<h3>2. Enter ten numbers, add them using a function, and display the sum.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int sumArray(int a[], int n)
+{
+int i, sum = 0;
+for (i = 0; i &lt; n; i++) sum += a[i];
+return sum;
+}
+int main(void)
+{
+int a[10], i;
+printf(&quot;Enter ten numbers: &quot;);
+for (i = 0; i &lt; 10; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+printf(&quot;Sum = %d\n&quot;, sumArray(a, 10));
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter ten numbers: 1 2 3 4 5 6 7 8 9 10
+Sum = 55</code></pre></div>
+</section>
+<section class="program">
+<h3>3. Pass an array to a function and receive the values back.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+void readArray(int a[], int n)
+{
+int i;
+for (i = 0; i &lt; n; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+}
+int main(void)
+{
+int a[5], i;
+printf(&quot;Enter five numbers: &quot;);
+readArray(a, 5);
+printf(&quot;Array returned through the parameter: &quot;);
+for (i = 0; i &lt; 5; i++) printf(&quot;%d &quot;, a[i]);
+printf(&quot;\n&quot;);
+
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter five numbers: 2 4 6 8 10
+Array returned through the parameter: 2 4 6 8 10</code></pre></div>
+</section>
+<section class="program">
+<h3>4. Demonstrate local and global variables with factorial, reverse, palindrome, prime, Armstrong and</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int n; /* global variable */
+void factorial(void)
+{
+int i; long long f = 1; /* local variables */
+if (n &lt; 0 || n &gt; 20) { printf(&quot;Factorial: use 0 to 20\n&quot;); return; }
+for (i = 1; i &lt;= n; i++) f *= i;
+printf(&quot;Factorial = %lld\n&quot;, f);
+}
+void reverseNumber(void)
+{
+int x = n, r = 0;
+while (x &gt; 0) { r = r * 10 + x % 10; x /= 10; }
+printf(&quot;Reverse = %d\n&quot;, r);
+}
+void palindrome(void)
+{
+int x = n, r = 0;
+while (x &gt; 0) { r = r * 10 + x % 10; x /= 10; }
+printf(&quot;%s\n&quot;, (r == n) ? &quot;Palindrome&quot; : &quot;Not palindrome&quot;);
+}
+void prime(void)
+{
+int i, ok = n &gt;= 2;
+for (i = 2; i * i &lt;= n; i++) if (n % i == 0) { ok = 0; break; }
+printf(&quot;%s\n&quot;, ok ? &quot;Prime&quot; : &quot;Not prime&quot;);
+}
+void armstrong(void)
+{
+int x = n, sum = 0, d;
+while (x &gt; 0) { d = x % 10; sum += d * d * d; x /= 10; }
+printf(&quot;%s\n&quot;, sum == n ? &quot;Armstrong (three-digit rule)&quot; : &quot;Not Armstrong (three-digit rule)&quot;);
+}
+void fibonacci(void)
+{
+int a = 0, b = 1, c;
+printf(&quot;Fibonacci up to n: &quot;);
+while (a &lt;= n) { printf(&quot;%d &quot;, a); c = a + b; a = b; b = c; }
+printf(&quot;\n&quot;);
+}
+int main(void)
+{
+printf(&quot;Enter a non-negative number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+factorial(); reverseNumber(); palindrome(); prime(); armstrong(); fibonacci();
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a non-negative number: 5
+Factorial = 120
+Reverse = 5
+Not palindrome
+Prime
+Not Armstrong (three-digit rule)
+Fibonacci up to n: 0 1 1 2 3 5</code></pre></div>
+</section>
+<section class="program">
+<h3>5. Swap two numbers using call by address.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+void swap(int *a, int *b)
+{
+int temp = *a;
+*a = *b;
+*b = temp;
+}
+int main(void)
+{
+int x = 10, y = 20;
+printf(&quot;Before: %d %d\n&quot;, x, y);
+swap(&amp;x, &amp;y);
+printf(&quot;After: %d %d\n&quot;, x, y);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Before: 10 20
+After: 20 10</code></pre></div>
+</section>
+<section class="program">
+<h3>6. Demonstrate swapping inside a function using call by value.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+void swapCopy(int a, int b)
+{
+int temp = a;
+a = b;
+b = temp;
+printf(&quot;Inside function: %d %d\n&quot;, a, b);
+}
+int main(void)
+{
+int x = 10, y = 20;
+swapCopy(x, y);
+printf(&quot;In main: %d %d\n&quot;, x, y);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Inside function: 20 10
+In main: 10 20</code></pre></div>
+</section>
+<section class="program">
+<h3>7. Make a function to calculate a number raised to a power.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+long long power(int base, int exp)
+{
+long long result = 1;
+int i;
+for (i = 0; i &lt; exp; i++) result *= base;
+return result;
+}
+int main(void)
+{
+int base, exp;
+printf(&quot;Enter base and non-negative power: &quot;);
+scanf(&quot;%d%d&quot;, &amp;base, &amp;exp);
+if (exp &lt; 0) printf(&quot;Power must be non-negative.\n&quot;);
+else printf(&quot;Result = %lld\n&quot;, power(base, exp));
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter base and non-negative power: 3 4
+Result = 81</code></pre></div>
+</section>
+<section class="program">
+<h3>8. Make a function to calculate the cube of a number.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int cube(int n)
+{
+return n * n * n;
+}
+int main(void)
+{
+int n;
+printf(&quot;Enter a number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+printf(&quot;Cube = %d\n&quot;, cube(n));
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a number: 4
+Cube = 64</code></pre></div>
+</section>
+</div></details>
+<details>
+<summary>Strings</summary>
+<div class="topic-content">
+<section class="program">
+<h3>1. Convert a string to uppercase.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+int main(void)
+{
+char s[200]; int i;
+printf(&quot;Enter a string: &quot;);
+fgets(s, sizeof(s), stdin);
+for (i = 0; s[i] != &#x27;\0&#x27;; i++) s[i] = (char)toupper((unsigned char)s[i]);
+printf(&quot;%s&quot;, s);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a string: Hello World
+HELLO WORLD</code></pre></div>
+</section>
+<section class="program">
+<h3>2. Convert a string to lowercase.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+int main(void)
+{
+char s[200]; int i;
+printf(&quot;Enter a string: &quot;);
+fgets(s, sizeof(s), stdin);
+for (i = 0; s[i] != &#x27;\0&#x27;; i++) s[i] = (char)tolower((unsigned char)s[i]);
+printf(&quot;%s&quot;, s);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a string: Hello WORLD
+hello world</code></pre></div>
+</section>
+<section class="program">
+<h3>3. Convert a string to sentence case.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+int main(void)
+{
+char s[200]; int i;
+printf(&quot;Enter a sentence: &quot;);
+fgets(s, sizeof(s), stdin);
+for (i = 0; s[i] != &#x27;\0&#x27;; i++) s[i] = (char)tolower((unsigned char)s[i]);
+if (s[0] != &#x27;\0&#x27;) s[0] = (char)toupper((unsigned char)s[0]);
+printf(&quot;%s&quot;, s);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a sentence: hELLO WORLD.
+Hello world.</code></pre></div>
+</section>
+<section class="program">
+<h3>4. Convert a string to title case.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+int main(void)
+{
+char s[200]; int i, start = 1;
+printf(&quot;Enter a sentence: &quot;);
+fgets(s, sizeof(s), stdin);
+for (i = 0; s[i] != &#x27;\0&#x27;; i++)
+{
+
+if (s[i] == &#x27; &#x27; || s[i] == &#x27;\t&#x27;) start = 1;
+else if (start) { s[i] = (char)toupper((unsigned char)s[i]); start = 0; }
+else s[i] = (char)tolower((unsigned char)s[i]);
+}
+printf(&quot;%s&quot;, s);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a sentence: c language is fun
+C Language Is Fun</code></pre></div>
+</section>
+<section class="program">
+<h3>5. Toggle the case of each letter in a string.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char s[200]; int i;
+printf(&quot;Enter a string: &quot;);
+fgets(s, sizeof(s), stdin);
+for (i = 0; s[i] != &#x27;\0&#x27;; i++)
+{
+if (s[i] &gt;= &#x27;a&#x27; &amp;&amp; s[i] &lt;= &#x27;z&#x27;) s[i] = s[i] - &#x27;a&#x27; + &#x27;A&#x27;;
+else if (s[i] &gt;= &#x27;A&#x27; &amp;&amp; s[i] &lt;= &#x27;Z&#x27;) s[i] = s[i] - &#x27;A&#x27; + &#x27;a&#x27;;
+}
+printf(&quot;%s&quot;, s);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a string: HeLLo 123
+hEllO 123</code></pre></div>
+</section>
+<section class="program">
+<h3>6. Find the length of a string without using strlen().</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char s[200]; int i = 0;
+printf(&quot;Enter a string: &quot;);
+fgets(s, sizeof(s), stdin);
+while (s[i] != &#x27;\0&#x27; &amp;&amp; s[i] != &#x27;\n&#x27;) i++;
+printf(&quot;Length = %d\n&quot;, i);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a string: Hello
+Length = 5</code></pre></div>
+</section>
+<section class="program">
+<h3>7. Compare two strings.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char a[100], b[100]; int i = 0;
+printf(&quot;Enter first string: &quot;); fgets(a, sizeof(a), stdin);
+printf(&quot;Enter second string: &quot;); fgets(b, sizeof(b), stdin);
+while (a[i] == b[i] &amp;&amp; a[i] != &#x27;\0&#x27; &amp;&amp; a[i] != &#x27;\n&#x27;) i++;
+if ((a[i] == &#x27;\n&#x27; || a[i] == &#x27;\0&#x27;) &amp;&amp; (b[i] == &#x27;\n&#x27; || b[i] == &#x27;\0&#x27;)) printf(&quot;Strings are equal\n&quot;);
+else printf(&quot;Strings are different\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter first string: apple
+Enter second string: apple
+Strings are equal</code></pre></div>
+</section>
+<section class="program">
+<h3>8. Concatenate two strings.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char a[200], b[100]; int i = 0, j = 0;
+printf(&quot;Enter first string: &quot;); fgets(a, sizeof(a), stdin);
+while (a[i] != &#x27;\0&#x27; &amp;&amp; a[i] != &#x27;\n&#x27;) i++;
+a[i] = &#x27;\0&#x27;;
+printf(&quot;Enter second string: &quot;); fgets(b, sizeof(b), stdin);
+while (b[j] != &#x27;\0&#x27; &amp;&amp; b[j] != &#x27;\n&#x27; &amp;&amp; i &lt; 198) a[i++] = b[j++];
+a[i] = &#x27;\0&#x27;;
+printf(&quot;Combined string: %s\n&quot;, a);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter first string: Good
+Enter second string: morning
+Combined string: Goodmorning</code></pre></div>
+</section>
+<section class="program">
+<h3>9. Copy one string into another.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char a[100], b[100]; int i = 0;
+printf(&quot;Enter a string: &quot;); fgets(a, sizeof(a), stdin);
+while (a[i] != &#x27;\0&#x27;) { b[i] = a[i]; i++; }
+b[i] = &#x27;\0&#x27;;
+printf(&quot;Copied string: %s&quot;, b);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a string: C language
+Copied string: C language</code></pre></div>
+</section>
+<section class="program">
+<h3>10. Print the character at a user-entered index or report out of bounds.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char s[100]; int index, len = 0;
+printf(&quot;Enter a string: &quot;); fgets(s, sizeof(s), stdin);
+while (s[len] != &#x27;\0&#x27; &amp;&amp; s[len] != &#x27;\n&#x27;) len++;
+s[len] = &#x27;\0&#x27;;
+printf(&quot;Enter index (starting at 0): &quot;); scanf(&quot;%d&quot;, &amp;index);
+if (index &gt;= 0 &amp;&amp; index &lt; len) printf(&quot;Character = %c\n&quot;, s[index]);
+else printf(&quot;Out of bounds\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a string: tiger
+Enter index (starting at 0): 2
+Character = g</code></pre></div>
+</section>
+<section class="program">
+<h3>11. Print each character of a string on a new line.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char s[100]; int i;
+printf(&quot;Enter a string: &quot;); fgets(s, sizeof(s), stdin);
+for (i = 0; s[i] != &#x27;\0&#x27; &amp;&amp; s[i] != &#x27;\n&#x27;; i++) printf(&quot;%c\n&quot;, s[i]);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a string: cat
+c
+a
+t</code></pre></div>
+</section>
+<section class="program">
+<h3>12. Copy a string into another string in reverse order.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char a[100], b[100]; int len = 0, i;
+printf(&quot;Enter a string: &quot;); fgets(a, sizeof(a), stdin);
+while (a[len] != &#x27;\0&#x27; &amp;&amp; a[len] != &#x27;\n&#x27;) len++;
+for (i = 0; i &lt; len; i++) b[i] = a[len - 1 - i];
+b[len] = &#x27;\0&#x27;;
+printf(&quot;Reversed copy: %s\n&quot;, b);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a string: hello
+Reversed copy: olleh</code></pre></div>
+</section>
+<section class="program">
+<h3>13. Enter two strings and print the ASCII difference of corresponding characters.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char a[100], b[100]; int i = 0, d;
+printf(&quot;Enter first string: &quot;); fgets(a, sizeof(a), stdin);
+printf(&quot;Enter second string: &quot;); fgets(b, sizeof(b), stdin);
+printf(&quot;Absolute character differences: &quot;);
+while (a[i] != &#x27;\0&#x27; &amp;&amp; a[i] != &#x27;\n&#x27; || b[i] != &#x27;\0&#x27; &amp;&amp; b[i] != &#x27;\n&#x27;)
+{
+d = (int)(unsigned char)a[i] - (int)(unsigned char)b[i];
+if (d &lt; 0) d = -d;
+printf(&quot;%d &quot;, d);
+i++;
+}
+printf(&quot;\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter first string: abc
+Enter second string: adc
+Absolute character differences: 0 2 0</code></pre></div>
+</section>
+<section class="program">
+<h3>14. Check whether a character exists in a string.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char s[100], ch; int i, found = 0;
+printf(&quot;Enter a string: &quot;); fgets(s, sizeof(s), stdin);
+printf(&quot;Enter character to find: &quot;); scanf(&quot; %c&quot;, &amp;ch);
+for (i = 0; s[i] != &#x27;\0&#x27;; i++) if (s[i] == ch) { found = 1; break; }
+if (found) printf(&quot;Character exists\n&quot;); else printf(&quot;Character does not exist\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a string: banana
+Enter character to find: n
+Character exists</code></pre></div>
+</section>
+<section class="program">
+<h3>15. Find the index of a character in a string.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char s[100], ch; int i, found = 0;
+printf(&quot;Enter a string: &quot;); fgets(s, sizeof(s), stdin);
+printf(&quot;Enter character: &quot;); scanf(&quot; %c&quot;, &amp;ch);
+for (i = 0; s[i] != &#x27;\0&#x27; &amp;&amp; s[i] != &#x27;\n&#x27;; i++)
+if (s[i] == ch) { found = 1; break; }
+if (found) printf(&quot;Index = %d\n&quot;, i); else printf(&quot;Character not found\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a string: banana
+Enter character: n
+Index = 2</code></pre></div>
+</section>
+<section class="program">
+<h3>16. Count all vowels in a string.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char s[200], ch; int i, count = 0;
+printf(&quot;Enter a string: &quot;); fgets(s, sizeof(s), stdin);
+for (i = 0; s[i] != &#x27;\0&#x27;; i++)
+{
+ch = s[i];
+if (ch &gt;= &#x27;A&#x27; &amp;&amp; ch &lt;= &#x27;Z&#x27;) ch = ch - &#x27;A&#x27; + &#x27;a&#x27;;
+if (ch == &#x27;a&#x27; || ch == &#x27;e&#x27; || ch == &#x27;i&#x27; || ch == &#x27;o&#x27; || ch == &#x27;u&#x27;) count++;
+}
+printf(&quot;Vowel count = %d\n&quot;, count);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a string: Hello world
+Vowel count = 3</code></pre></div>
+</section>
+<section class="program">
+<h3>17. Print the character at a given index (bound number).</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+char s[100]; int index, len = 0;
+printf(&quot;Enter a string: &quot;); fgets(s, sizeof(s), stdin);
+while (s[len] != &#x27;\0&#x27; &amp;&amp; s[len] != &#x27;\n&#x27;) len++;
+printf(&quot;Enter index (starting at 0): &quot;); scanf(&quot;%d&quot;, &amp;index);
+if (index &gt;= 0 &amp;&amp; index &lt; len) printf(&quot;Character = %c\n&quot;, s[index]);
+else printf(&quot;Index is out of bounds\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a string: computer
+Enter index (starting at 0): 4
+Character = u</code></pre></div>
+</section>
+<section class="program">
+<h3>18. Check whether a string is a palindrome using reverse.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main(void)
+{
+char s[100], rev[100]; int i, len;
+printf(&quot;Enter a word: &quot;); scanf(&quot;%99s&quot;, s);
+len = (int)strlen(s);
+for (i = 0; i &lt; len; i++) rev[i] = s[len - 1 - i];
+rev[len] = &#x27;\0&#x27;;
+
+
+if (strcmp(s, rev) == 0) printf(&quot;Palindrome\n&quot;);
+else printf(&quot;Not a palindrome\n&quot;);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter a word: level
+Palindrome</code></pre></div>
+</section>
+<section class="program">
+<h3>19. Enter student roll number, name, class and marks in five subjects.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int roll, i; float marks[5], sum = 0;
+char name[50], className[20];
+printf(&quot;Enter roll number: &quot;); scanf(&quot;%d&quot;, &amp;roll);
+printf(&quot;Enter name (one word): &quot;); scanf(&quot;%49s&quot;, name);
+printf(&quot;Enter class: &quot;); scanf(&quot;%19s&quot;, className);
+printf(&quot;Enter marks for five subjects: &quot;);
+for (i = 0; i &lt; 5; i++) { scanf(&quot;%f&quot;, &amp;marks[i]); sum += marks[i]; }
+printf(&quot;Roll: %d\nName: %s\nClass: %s\n&quot;, roll, name, className);
+for (i = 0; i &lt; 5; i++) printf(&quot;Subject %d: %.1f\n&quot;, i + 1, marks[i]);
+printf(&quot;Total = %.1f\nAverage = %.2f\n&quot;, sum, sum / 5);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter roll number: 12
+Enter name (one word): Sara
+Enter class: BCA1
+Enter marks for five subjects: 80 75 90 85 70
+Roll: 12
+Name: Sara
+Class: BCA1
+Subject 1: 80.0
+Subject 2: 75.0
+Subject 3: 90.0
+Subject 4: 85.0
+Subject 5: 70.0
+Total = 400.0
+Average = 80.00</code></pre></div>
+</section>
+</div></details>
+<details>
+<summary>Multidimensional Arrays</summary>
+<div class="topic-content">
+<section class="program">
+<h3>1. Enter four numbers and print them as a 2 x 2 matrix.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[2][2], i, j;
+printf(&quot;Enter four numbers: &quot;);
+for (i = 0; i &lt; 2; i++)
+for (j = 0; j &lt; 2; j++) scanf(&quot;%d&quot;, &amp;a[i][j]);
+printf(&quot;Matrix:\n&quot;);
+for (i = 0; i &lt; 2; i++)
+{
+for (j = 0; j &lt; 2; j++) printf(&quot;%d &quot;, a[i][j]);
+printf(&quot;\n&quot;);
+}
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter four numbers: 1 2 3 4
+Matrix:
+12
+34</code></pre></div>
+</section>
+<section class="program">
+<h3>2. Find the transpose of a 2 x 2 matrix.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[2][2], i, j;
+printf(&quot;Enter four matrix values: &quot;);
+for (i = 0; i &lt; 2; i++) for (j = 0; j &lt; 2; j++) scanf(&quot;%d&quot;, &amp;a[i][j]);
+printf(&quot;Transpose:\n&quot;);
+for (i = 0; i &lt; 2; i++)
+{
+for (j = 0; j &lt; 2; j++) printf(&quot;%d &quot;, a[j][i]);
+printf(&quot;\n&quot;);
+}
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter four matrix values: 1 2 3 4
+Transpose:
+13
+24</code></pre></div>
+</section>
+<section class="program">
+<h3>3. Add two 2 x 2 matrices.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[2][2], b[2][2], c[2][2], i, j;
+printf(&quot;Enter first matrix (four values): &quot;);
+for (i = 0; i &lt; 2; i++) for (j = 0; j &lt; 2; j++) scanf(&quot;%d&quot;, &amp;a[i][j]);
+printf(&quot;Enter second matrix (four values): &quot;);
+for (i = 0; i &lt; 2; i++) for (j = 0; j &lt; 2; j++) scanf(&quot;%d&quot;, &amp;b[i][j]);
+for (i = 0; i &lt; 2; i++) for (j = 0; j &lt; 2; j++) c[i][j] = a[i][j] + b[i][j];
+printf(&quot;Sum matrix:\n&quot;);
+for (i = 0; i &lt; 2; i++) { for (j = 0; j &lt; 2; j++) printf(&quot;%d &quot;, c[i][j]); printf(&quot;\n&quot;); }
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter first matrix (four values): 1 2 3 4
+Enter second matrix (four values): 5 6 7 8
+Sum matrix:
+68
+10 12</code></pre></div>
+</section>
+<section class="program">
+<h3>4. Subtract two 2 x 2 matrices.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[2][2], b[2][2], c[2][2], i, j;
+printf(&quot;Enter first matrix: &quot;);
+for (i = 0; i &lt; 2; i++) for (j = 0; j &lt; 2; j++) scanf(&quot;%d&quot;, &amp;a[i][j]);
+printf(&quot;Enter second matrix: &quot;);
+for (i = 0; i &lt; 2; i++) for (j = 0; j &lt; 2; j++) scanf(&quot;%d&quot;, &amp;b[i][j]);
+for (i = 0; i &lt; 2; i++) for (j = 0; j &lt; 2; j++) c[i][j] = a[i][j] - b[i][j];
+printf(&quot;Difference matrix:\n&quot;);
+for (i = 0; i &lt; 2; i++) { for (j = 0; j &lt; 2; j++) printf(&quot;%d &quot;, c[i][j]); printf(&quot;\n&quot;); }
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter first matrix: 8 7 6 5
+Enter second matrix: 1 2 3 4
+Difference matrix:
+75
+31</code></pre></div>
+</section>
+<section class="program">
+<h3>5. Multiply two 2 x 2 matrices.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int a[2][2], b[2][2], c[2][2], i, j, k;
+printf(&quot;Enter first matrix: &quot;);
+for (i = 0; i &lt; 2; i++) for (j = 0; j &lt; 2; j++) scanf(&quot;%d&quot;, &amp;a[i][j]);
+printf(&quot;Enter second matrix: &quot;);
+for (i = 0; i &lt; 2; i++) for (j = 0; j &lt; 2; j++) scanf(&quot;%d&quot;, &amp;b[i][j]);
+for (i = 0; i &lt; 2; i++)
+for (j = 0; j &lt; 2; j++)
+{
+c[i][j] = 0;
+for (k = 0; k &lt; 2; k++) c[i][j] += a[i][k] * b[k][j];
+}
+printf(&quot;Product matrix:\n&quot;);
+for (i = 0; i &lt; 2; i++) { for (j = 0; j &lt; 2; j++) printf(&quot;%d &quot;, c[i][j]); printf(&quot;\n&quot;); }
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter first matrix: 1 2 3 4
+Enter second matrix: 5 6 7 8
+Product matrix:
+19 22
+43 50</code></pre></div>
+</section>
+</div></details>
+<details>
+<summary>Structures</summary>
+<div class="topic-content">
+<section class="program">
+<h3>1. Enter and print ID, name and designation for 50 employees in a table.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+struct Employee { int id; char name[30]; char designation[30]; };
+int main(void)
+{
+struct Employee e[50]; int i;
+for (i = 0; i &lt; 50; i++)
+{
+printf(&quot;Enter ID, name and designation for employee %d: &quot;, i + 1);
+scanf(&quot;%d%29s%29s&quot;, &amp;e[i].id, e[i].name, e[i].designation);
+}
+printf(&quot;ID\tName\tDesignation\n&quot;);
+for (i = 0; i &lt; 50; i++) printf(&quot;%d\t%s\t%s\n&quot;, e[i].id, e[i].name, e[i].designation);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter ID, name and designation for employee 1: 101 Asha Editor
+Enter ID, name and designation for employee 2: 102 Ravi Manager
+... (enter details for 50 employees)
+ID Name Designation
+101 Asha Editor
+102 Ravi Manager
+...</code></pre></div>
+</section>
+<section class="program">
+<h3>2. Enter details for 50 employees and print only their names.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+struct Employee { int id; char name[30]; char designation[30]; };
+int main(void)
+{
+struct Employee e[50]; int i;
+for (i = 0; i &lt; 50; i++)
+{
+printf(&quot;Enter ID, name and designation: &quot;);
+scanf(&quot;%d%29s%29s&quot;, &amp;e[i].id, e[i].name, e[i].designation);
+}
+printf(&quot;Employee names:\n&quot;);
+for (i = 0; i &lt; 50; i++) printf(&quot;%s\n&quot;, e[i].name);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter ID, name and designation: 101 Asha Editor
+... (repeat for 50 employees)
+Employee names:
+Asha
+...</code></pre></div>
+</section>
+<section class="program">
+<h3>3. Print employee ID and the first character of the employee name.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+struct Employee { int id; char name[30]; char designation[30]; };
+int main(void)
+{
+struct Employee e[50]; int i;
+for (i = 0; i &lt; 50; i++)
+{
+printf(&quot;Enter ID, name and designation: &quot;);
+scanf(&quot;%d%29s%29s&quot;, &amp;e[i].id, e[i].name, e[i].designation);
+}
+printf(&quot;ID\tFirst letter\n&quot;);
+for (i = 0; i &lt; 50; i++) printf(&quot;%d\t%c\n&quot;, e[i].id, e[i].name[0]);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter ID, name and designation: 101 Asha Editor
+...
+ID First letter
+101 A
+...</code></pre></div>
+</section>
+<section class="program">
+<h3>4. Enter student roll, name, fee and date of birth; print in ascending roll order.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+struct Student { int roll; char name[30]; float fee; char dob[15]; };
+int main(void)
+{
+struct Student s[3], temp; int i, j;
+for (i = 0; i &lt; 3; i++)
+{
+printf(&quot;Enter roll, name, fee and DOB (DD-MM-YYYY): &quot;);
+scanf(&quot;%d%29s%f%14s&quot;, &amp;s[i].roll, s[i].name, &amp;s[i].fee, s[i].dob);
+}
+for (i = 0; i &lt; 2; i++)
+for (j = 0; j &lt; 2 - i; j++)
+if (s[j].roll &gt; s[j + 1].roll) { temp = s[j]; s[j] = s[j + 1]; s[j + 1] = temp; }
+printf(&quot;Roll\tName\tFee\tDOB\n&quot;);
+for (i = 0; i &lt; 3; i++) printf(&quot;%d\t%s\t%.2f\t%s\n&quot;, s[i].roll, s[i].name, s[i].fee, s[i].dob);
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>Enter roll, name, fee and DOB (DD-MM-YYYY): 12 Aman 12000 02-03-2007
+Enter roll, name, fee and DOB (DD-MM-YYYY): 4 Riya 11000 11-01-2006
+Enter roll, name, fee and DOB (DD-MM-YYYY): 9 Ravi 11500 07-05-2007
+Roll Name Fee       DOB
+4 Riya 11000.00 11-01-2006
+9 Ravi 11500.00 07-05-2007
+12 Aman 12000.00 02-03-2007</code></pre></div>
+</section>
+</div></details>
+<details>
+<summary>Nested Loops</summary>
+<div class="topic-content">
+<section class="program">
+<h3>1. Print the pattern with five 1s on each of three lines.</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+int i, j;
+for (i = 1; i &lt;= 3; i++)
+{
+for (j = 1; j &lt;= 5; j++) printf(&quot;1&quot;);
+printf(&quot;\n&quot;);
+}
+return 0;
+}</code></pre>
+<div class="output"><div class="output-label">Sample output</div><pre><code>11111
+11111
+11111</code></pre></div>
+</section>
+</div></details>
+</div></main>
+<footer>Made for learning C programming</footer>
+</body>
+</html>
