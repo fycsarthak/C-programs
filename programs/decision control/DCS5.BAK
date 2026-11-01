@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <conio.h>
+void main(){
+float x;
+int y;
+clrscr();
+printf("checks the decimals place");
+scanf("%f",&x);
+printf("%d",x);x
+}
+
