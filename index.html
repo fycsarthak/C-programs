@@ -4037,6 +4037,883 @@ void main()
 1 | 1200 | 02/02/2004
 2 | 1100 | 03/03/2005
 3 | 1000 | 01/01/2003</pre></div>
+	<details class="topic">
+<summary><span>File Handling</span><span class="topic-count">8 questions</span></summary>
+<div class="topic-body">
+
+<article class="program">
+<h3>1. Create a file and copy that file into another file.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main()
+{
+    FILE *fp1, *fp2;
+    int ch;
+
+    clrscr();
+
+    fp1 = fopen("FIRST.TXT", "w");
+    fprintf(fp1, "Hello, this is my first file.");
+    fclose(fp1);
+
+    fp1 = fopen("FIRST.TXT", "r");
+    fp2 = fopen("COPY.TXT", "w");
+
+    while ((ch = fgetc(fp1)) != EOF)
+    {
+        fputc(ch, fp2);
+    }
+
+    fclose(fp1);
+    fclose(fp2);
+
+    printf("File copied successfully.");
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>File copied successfully.
+
+COPY.TXT contains:
+Hello, this is my first file.</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>2. Create a file and rename the file.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main()
+{
+    FILE *fp;
+
+    clrscr();
+
+    fp = fopen("OLD.TXT", "w");
+    fprintf(fp, "This file will be renamed.");
+    fclose(fp);
+
+    if (rename("OLD.TXT", "NEW.TXT") == 0)
+        printf("File renamed successfully.");
+    else
+        printf("Unable to rename file.");
+
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>File renamed successfully.
+
+OLD.TXT is now NEW.TXT.</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>3. Create 2 files and concatenate into 3rd file.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main()
+{
+    FILE *fp1, *fp2, *fp3;
+    int ch;
+
+    clrscr();
+
+    fp1 = fopen("ONE.TXT", "w");
+    fprintf(fp1, "First file. ");
+    fclose(fp1);
+
+    fp2 = fopen("TWO.TXT", "w");
+    fprintf(fp2, "Second file.");
+    fclose(fp2);
+
+    fp1 = fopen("ONE.TXT", "r");
+    fp2 = fopen("TWO.TXT", "r");
+    fp3 = fopen("THREE.TXT", "w");
+
+    while ((ch = fgetc(fp1)) != EOF)
+        fputc(ch, fp3);
+
+    while ((ch = fgetc(fp2)) != EOF)
+        fputc(ch, fp3);
+
+    fclose(fp1);
+    fclose(fp2);
+    fclose(fp3);
+
+    printf("Files concatenated successfully.");
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>Files concatenated successfully.
+
+THREE.TXT contains:
+First file. Second file.</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>4. Create a file and count the number of characters in the file.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main()
+{
+    FILE *fp;
+    int ch, count = 0;
+
+    clrscr();
+
+    fp = fopen("TEXT.TXT", "w");
+    fprintf(fp, "Hello C");
+    fclose(fp);
+
+    fp = fopen("TEXT.TXT", "r");
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        count++;
+    }
+
+    fclose(fp);
+
+    printf("Number of characters = %d", count);
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>Number of characters = 7</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>5. Create a file and count the number of words in the file.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;ctype.h&gt;
+
+void main()
+{
+    FILE *fp;
+    int ch, count = 0, inword = 0;
+
+    clrscr();
+
+    fp = fopen("WORDS.TXT", "w");
+    fprintf(fp, "C is easy to learn");
+    fclose(fp);
+
+    fp = fopen("WORDS.TXT", "r");
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        if (isspace(ch))
+            inword = 0;
+        else if (inword == 0)
+        {
+            inword = 1;
+            count++;
+        }
+    }
+
+    fclose(fp);
+
+    printf("Number of words = %d", count);
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>Number of words = 5</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>6. Enter the file name from the user, enter the data from the user and put the data in the file.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main()
+{
+    FILE *fp;
+    char name[30], data[100];
+
+    clrscr();
+
+    printf("Enter file name: ");
+    scanf("%s", name);
+
+    fp = fopen(name, "w");
+
+    printf("Enter data: ");
+    fflush(stdin);
+    gets(data);
+
+    fprintf(fp, "%s", data);
+    fclose(fp);
+
+    printf("Data saved in file.");
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>notes.txt
+My C practice work</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>Enter file name: notes.txt
+Enter data: My C practice work
+Data saved in file.</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>7. Enter the file name from the user, enter the data from the user and put the data in the file, but data should be in capital letters.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;ctype.h&gt;
+
+void main()
+{
+    FILE *fp;
+    char name[30], data[100];
+    int i;
+
+    clrscr();
+
+    printf("Enter file name: ");
+    scanf("%s", name);
+
+    fp = fopen(name, "w");
+
+    printf("Enter data: ");
+    fflush(stdin);
+    gets(data);
+
+    for (i = 0; data[i] != '\0'; i++)
+    {
+        data[i] = toupper(data[i]);
+    }
+
+    fprintf(fp, "%s", data);
+    fclose(fp);
+
+    printf("Data saved in capital letters.");
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>capital.txt
+hello world</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>Enter file name: capital.txt
+Enter data: hello world
+Data saved in capital letters.
+
+The file contains:
+HELLO WORLD</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>8. Enter the file name from the user and keep entering data until the user wants to stop.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main()
+{
+    FILE *fp;
+    char name[30], data[100];
+    int choice;
+
+    clrscr();
+
+    printf("Enter file name: ");
+    scanf("%s", name);
+
+    fp = fopen(name, "w");
+
+    do
+    {
+        printf("Enter data: ");
+        fflush(stdin);
+        gets(data);
+
+        fprintf(fp, "%s\n", data);
+
+        printf("Enter 1 to continue or 0 to stop: ");
+        scanf("%d", &amp;choice);
+
+    } while (choice == 1);
+
+    fclose(fp);
+
+    printf("Data saved in file.");
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>diary.txt
+First line
+1
+Second line
+0</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>Enter file name: diary.txt
+Enter data: First line
+Enter 1 to continue or 0 to stop: 1
+Enter data: Second line
+Enter 1 to continue or 0 to stop: 0
+Data saved in file.</pre>
+</div>
+</div>
+</article>
+
+</div>
+</details>
+
+<!-- Union Questions -->
+<details class="topic">
+<summary><span>Union Questions</span><span class="topic-count">4 questions</span></summary>
+<div class="topic-body">
+
+<article class="program">
+<h3>1. Basic Union Program.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+union Student
+{
+    int roll;
+    float marks;
+    char grade;
+};
+
+void main()
+{
+    union Student s;
+
+    clrscr();
+
+    s.roll = 12;
+    printf("Roll number = %d\n", s.roll);
+
+    s.marks = 85.5;
+    printf("Marks = %.1f\n", s.marks);
+
+    s.grade = 'A';
+    printf("Grade = %c", s.grade);
+
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>Roll number = 12
+Marks = 85.5
+Grade = A</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>2. Size of union - proves union saves memory.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+struct Sample
+{
+    int a;
+    float b;
+    char c;
+};
+
+union SampleUnion
+{
+    int a;
+    float b;
+    char c;
+};
+
+void main()
+{
+    clrscr();
+
+    printf("Size of structure = %u bytes\n",
+           (unsigned)sizeof(struct Sample));
+
+    printf("Size of union = %u bytes",
+           (unsigned)sizeof(union SampleUnion));
+
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>Size of structure = 7 bytes
+Size of union = 4 bytes</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>3. Difference between structure and union.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+struct Data
+{
+    int a;
+    float b;
+};
+
+union DataUnion
+{
+    int a;
+    float b;
+};
+
+void main()
+{
+    struct Data s;
+    union DataUnion u;
+
+    clrscr();
+
+    s.a = 10;
+    s.b = 5.5;
+
+    printf("Structure values:\n");
+    printf("a = %d\n", s.a);
+    printf("b = %.1f\n", s.b);
+
+    u.a = 10;
+    u.b = 5.5;
+
+    printf("\nUnion value:\n");
+    printf("b = %.1f", u.b);
+
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>Structure values:
+a = 10
+b = 5.5
+
+Union value:
+b = 5.5</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>4. Union can hold only one value at a time.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+union Value
+{
+    int number;
+    float decimal;
+    char letter;
+};
+
+void main()
+{
+    union Value v;
+
+    clrscr();
+
+    v.number = 25;
+    printf("Number = %d\n", v.number);
+
+    v.decimal = 7.5;
+    printf("Decimal = %.1f\n", v.decimal);
+
+    v.letter = 'A';
+    printf("Letter = %c", v.letter);
+
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>Number = 25
+Decimal = 7.5
+Letter = A</pre>
+</div>
+</div>
+</article>
+
+</div>
+</details>
+
+<!-- Recursion Questions -->
+<details class="topic">
+<summary><span>Recursion Questions</span><span class="topic-count">8 questions</span></summary>
+<div class="topic-body">
+
+<article class="program">
+<h3>1. Print A 5 times.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void printA(int n)
+{
+    if (n == 0)
+        return;
+
+    printf("A\n");
+    printA(n - 1);
+}
+
+void main()
+{
+    clrscr();
+    printA(5);
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>A
+A
+A
+A
+A</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>2. Print 1 to 5 using recursion.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void printnum(int n)
+{
+    if (n &gt; 5)
+        return;
+
+    printf("%d ", n);
+    printnum(n + 1);
+}
+
+void main()
+{
+    clrscr();
+    printnum(1);
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>1 2 3 4 5</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>3. Print 5 to 1 using recursion.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void printnum(int n)
+{
+    if (n == 0)
+        return;
+
+    printf("%d ", n);
+    printnum(n - 1);
+}
+
+void main()
+{
+    clrscr();
+    printnum(5);
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>5 4 3 2 1</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>4. Infinite recursion.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void repeat()
+{
+    printf("Function calling itself\n");
+    repeat();
+}
+
+void main()
+{
+    clrscr();
+    repeat();
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>Function calling itself
+Function calling itself
+Function calling itself
+...
+
+The program will eventually stop responding or crash.</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>5. Factorial using recursion.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+int factorial(int n)
+{
+    if (n == 0 || n == 1)
+        return 1;
+
+    return n * factorial(n - 1);
+}
+
+void main()
+{
+    int n;
+
+    clrscr();
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;n);
+
+    if (n &lt; 0)
+        printf("Factorial is not possible.");
+    else
+        printf("Factorial = %d", factorial(n));
+
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>5</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>Enter a number: 5
+Factorial = 120</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>6. Write a program of recursion and display the output.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+int sum(int n)
+{
+    if (n == 0)
+        return 0;
+
+    return n + sum(n - 1);
+}
+
+void main()
+{
+    clrscr();
+
+    printf("Sum = %d", sum(5));
+
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>Sum = 15</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>7. Write a program of recursion with global variable and display the output.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+int n = 1;
+
+void display()
+{
+    if (n &gt; 5)
+        return;
+
+    printf("%d ", n);
+    n++;
+    display();
+}
+
+void main()
+{
+    clrscr();
+
+    display();
+
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>1 2 3 4 5</pre>
+</div>
+</div>
+</article>
+
+<article class="program">
+<h3>8. Write a program of recursion with local variable and display the output.</h3>
+<div class="code-title">C Program</div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void display(int n)
+{
+    if (n == 0)
+        return;
+
+    display(n - 1);
+    printf("%d ", n);
+}
+
+void main()
+{
+    clrscr();
+
+    display(5);
+
+    getch();
+}</code></pre>
+<div class="sample-grid">
+<div class="sample-cell">
+<div class="code-title">Sample input</div>
+<pre>No input required</pre>
+</div>
+<div class="sample-cell">
+<div class="output-title">Sample output</div>
+<pre>1 2 3 4 5</pre>
+</div>
+</div>
+</article>
+
 </div></article>
 </div></details>
 </div>
