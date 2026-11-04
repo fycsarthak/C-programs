@@ -4038,9 +4038,8 @@ void main()
 2 | 1100 | 03/03/2005
 3 | 1000 | 01/01/2003</pre></div>
 	<details class="topic">
-<summary><span>File Handling</span><span class="topic-count">8 questions</span></summary>
+		<summary><span>File Handling</span><span class="topic-count">8 questions</span></summary>
 <div class="topic-body">
-
 <article class="program">
 <h3>1. Create a file and copy that file into another file.</h3>
 <div class="code-title">C Program</div>
@@ -4049,44 +4048,39 @@ void main()
 
 void main()
 {
-    FILE *fp1, *fp2;
-    int ch;
+FILE *fp1, *fp2;
+int ch;
 
-    clrscr();
+clrscr();
 
-    fp1 = fopen("FIRST.TXT", "w");
-    fprintf(fp1, "Hello, this is my first file.");
-    fclose(fp1);
+fp1 = fopen(&quot;FIRST.TXT&quot;, &quot;w&quot;);
+fprintf(fp1, &quot;Hello, this is my first file.&quot;);
+fclose(fp1);
 
-    fp1 = fopen("FIRST.TXT", "r");
-    fp2 = fopen("COPY.TXT", "w");
+fp1 = fopen(&quot;FIRST.TXT&quot;, &quot;r&quot;);
+fp2 = fopen(&quot;COPY.TXT&quot;, &quot;w&quot;);
 
-    while ((ch = fgetc(fp1)) != EOF)
-    {
-        fputc(ch, fp2);
-    }
+while ((ch = fgetc(fp1)) != EOF)
+{
+fputc(ch, fp2);
+}
 
-    fclose(fp1);
-    fclose(fp2);
+fclose(fp1);
+fclose(fp2);
 
-    printf("File copied successfully.");
-    getch();
+printf(&quot;File copied successfully.&quot;);
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
 <pre>File copied successfully.
 
 COPY.TXT contains:
-Hello, this is my first file.</pre>
-</div>
+Hello, this is my first file.</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>2. Create a file and rename the file.</h3>
 <div class="code-title">C Program</div>
@@ -4095,35 +4089,30 @@ Hello, this is my first file.</pre>
 
 void main()
 {
-    FILE *fp;
+FILE *fp;
 
-    clrscr();
+clrscr();
 
-    fp = fopen("OLD.TXT", "w");
-    fprintf(fp, "This file will be renamed.");
-    fclose(fp);
+fp = fopen(&quot;OLD.TXT&quot;, &quot;w&quot;);
+fprintf(fp, &quot;This file will be renamed.&quot;);
+fclose(fp);
 
-    if (rename("OLD.TXT", "NEW.TXT") == 0)
-        printf("File renamed successfully.");
-    else
-        printf("Unable to rename file.");
+if (rename(&quot;OLD.TXT&quot;, &quot;NEW.TXT&quot;) == 0)
+printf(&quot;File renamed successfully.&quot;);
+else
+printf(&quot;Unable to rename file.&quot;);
 
-    getch();
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
 <pre>File renamed successfully.
 
-OLD.TXT is now NEW.TXT.</pre>
-</div>
+OLD.TXT is now NEW.TXT.</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>3. Create 2 files and concatenate into 3rd file.</h3>
 <div class="code-title">C Program</div>
@@ -4132,51 +4121,46 @@ OLD.TXT is now NEW.TXT.</pre>
 
 void main()
 {
-    FILE *fp1, *fp2, *fp3;
-    int ch;
+FILE *fp1, *fp2, *fp3;
+int ch;
 
-    clrscr();
+clrscr();
 
-    fp1 = fopen("ONE.TXT", "w");
-    fprintf(fp1, "First file. ");
-    fclose(fp1);
+fp1 = fopen(&quot;ONE.TXT&quot;, &quot;w&quot;);
+fprintf(fp1, &quot;First file. &quot;);
+fclose(fp1);
 
-    fp2 = fopen("TWO.TXT", "w");
-    fprintf(fp2, "Second file.");
-    fclose(fp2);
+fp2 = fopen(&quot;TWO.TXT&quot;, &quot;w&quot;);
+fprintf(fp2, &quot;Second file.&quot;);
+fclose(fp2);
 
-    fp1 = fopen("ONE.TXT", "r");
-    fp2 = fopen("TWO.TXT", "r");
-    fp3 = fopen("THREE.TXT", "w");
+fp1 = fopen(&quot;ONE.TXT&quot;, &quot;r&quot;);
+fp2 = fopen(&quot;TWO.TXT&quot;, &quot;r&quot;);
+fp3 = fopen(&quot;THREE.TXT&quot;, &quot;w&quot;);
 
-    while ((ch = fgetc(fp1)) != EOF)
-        fputc(ch, fp3);
+while ((ch = fgetc(fp1)) != EOF)
+fputc(ch, fp3);
 
-    while ((ch = fgetc(fp2)) != EOF)
-        fputc(ch, fp3);
+while ((ch = fgetc(fp2)) != EOF)
+fputc(ch, fp3);
 
-    fclose(fp1);
-    fclose(fp2);
-    fclose(fp3);
+fclose(fp1);
+fclose(fp2);
+fclose(fp3);
 
-    printf("Files concatenated successfully.");
-    getch();
+printf(&quot;Files concatenated successfully.&quot;);
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
 <pre>Files concatenated successfully.
 
 THREE.TXT contains:
-First file. Second file.</pre>
-</div>
+First file. Second file.</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>4. Create a file and count the number of characters in the file.</h3>
 <div class="code-title">C Program</div>
@@ -4185,39 +4169,34 @@ First file. Second file.</pre>
 
 void main()
 {
-    FILE *fp;
-    int ch, count = 0;
+FILE *fp;
+int ch, count = 0;
 
-    clrscr();
+clrscr();
 
-    fp = fopen("TEXT.TXT", "w");
-    fprintf(fp, "Hello C");
-    fclose(fp);
+fp = fopen(&quot;TEXT.TXT&quot;, &quot;w&quot;);
+fprintf(fp, &quot;Hello C&quot;);
+fclose(fp);
 
-    fp = fopen("TEXT.TXT", "r");
+fp = fopen(&quot;TEXT.TXT&quot;, &quot;r&quot;);
 
-    while ((ch = fgetc(fp)) != EOF)
-    {
-        count++;
-    }
+while ((ch = fgetc(fp)) != EOF)
+{
+count++;
+}
 
-    fclose(fp);
+fclose(fp);
 
-    printf("Number of characters = %d", count);
-    getch();
+printf(&quot;Number of characters = %d&quot;, count);
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
-<pre>Number of characters = 7</pre>
-</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
+<pre>Number of characters = 7</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>5. Create a file and count the number of words in the file.</h3>
 <div class="code-title">C Program</div>
@@ -4227,45 +4206,40 @@ void main()
 
 void main()
 {
-    FILE *fp;
-    int ch, count = 0, inword = 0;
+FILE *fp;
+int ch, count = 0, inword = 0;
 
-    clrscr();
+clrscr();
 
-    fp = fopen("WORDS.TXT", "w");
-    fprintf(fp, "C is easy to learn");
-    fclose(fp);
+fp = fopen(&quot;WORDS.TXT&quot;, &quot;w&quot;);
+fprintf(fp, &quot;C is easy to learn&quot;);
+fclose(fp);
 
-    fp = fopen("WORDS.TXT", "r");
+fp = fopen(&quot;WORDS.TXT&quot;, &quot;r&quot;);
 
-    while ((ch = fgetc(fp)) != EOF)
-    {
-        if (isspace(ch))
-            inword = 0;
-        else if (inword == 0)
-        {
-            inword = 1;
-            count++;
-        }
-    }
+while ((ch = fgetc(fp)) != EOF)
+{
+if (isspace(ch))
+inword = 0;
+else if (inword == 0)
+{
+inword = 1;
+count++;
+}
+}
 
-    fclose(fp);
+fclose(fp);
 
-    printf("Number of words = %d", count);
-    getch();
+printf(&quot;Number of words = %d&quot;, count);
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
-<pre>Number of words = 5</pre>
-</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
+<pre>Number of words = 5</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>6. Enter the file name from the user, enter the data from the user and put the data in the file.</h3>
 <div class="code-title">C Program</div>
@@ -4274,41 +4248,36 @@ void main()
 
 void main()
 {
-    FILE *fp;
-    char name[30], data[100];
+FILE *fp;
+char name[30], data[100];
 
-    clrscr();
+clrscr();
 
-    printf("Enter file name: ");
-    scanf("%s", name);
+printf(&quot;Enter file name: &quot;);
+scanf(&quot;%s&quot;, name);
 
-    fp = fopen(name, "w");
+fp = fopen(name, &quot;w&quot;);
 
-    printf("Enter data: ");
-    fflush(stdin);
-    gets(data);
+printf(&quot;Enter data: &quot;);
+fflush(stdin);
+gets(data);
 
-    fprintf(fp, "%s", data);
-    fclose(fp);
+fprintf(fp, &quot;%s&quot;, data);
+fclose(fp);
 
-    printf("Data saved in file.");
-    getch();
+printf(&quot;Data saved in file.&quot;);
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
 <pre>notes.txt
-My C practice work</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
+My C practice work</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
 <pre>Enter file name: notes.txt
 Enter data: My C practice work
-Data saved in file.</pre>
-</div>
+Data saved in file.</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>7. Enter the file name from the user, enter the data from the user and put the data in the file, but data should be in capital letters.</h3>
 <div class="code-title">C Program</div>
@@ -4318,50 +4287,45 @@ Data saved in file.</pre>
 
 void main()
 {
-    FILE *fp;
-    char name[30], data[100];
-    int i;
+FILE *fp;
+char name[30], data[100];
+int i;
 
-    clrscr();
+clrscr();
 
-    printf("Enter file name: ");
-    scanf("%s", name);
+printf(&quot;Enter file name: &quot;);
+scanf(&quot;%s&quot;, name);
 
-    fp = fopen(name, "w");
+fp = fopen(name, &quot;w&quot;);
 
-    printf("Enter data: ");
-    fflush(stdin);
-    gets(data);
+printf(&quot;Enter data: &quot;);
+fflush(stdin);
+gets(data);
 
-    for (i = 0; data[i] != '\0'; i++)
-    {
-        data[i] = toupper(data[i]);
-    }
+for (i = 0; data[i] != &#x27;\0&#x27;; i++)
+{
+data[i] = toupper(data[i]);
+}
 
-    fprintf(fp, "%s", data);
-    fclose(fp);
+fprintf(fp, &quot;%s&quot;, data);
+fclose(fp);
 
-    printf("Data saved in capital letters.");
-    getch();
+printf(&quot;Data saved in capital letters.&quot;);
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
 <pre>capital.txt
-hello world</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
+hello world</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
 <pre>Enter file name: capital.txt
 Enter data: hello world
 Data saved in capital letters.
 
 The file contains:
-HELLO WORLD</pre>
-</div>
+HELLO WORLD</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>8. Enter the file name from the user and keep entering data until the user wants to stop.</h3>
 <div class="code-title">C Program</div>
@@ -4370,64 +4334,56 @@ HELLO WORLD</pre>
 
 void main()
 {
-    FILE *fp;
-    char name[30], data[100];
-    int choice;
+FILE *fp;
+char name[30], data[100];
+int choice;
 
-    clrscr();
+clrscr();
 
-    printf("Enter file name: ");
-    scanf("%s", name);
+printf(&quot;Enter file name: &quot;);
+scanf(&quot;%s&quot;, name);
 
-    fp = fopen(name, "w");
+fp = fopen(name, &quot;w&quot;);
 
-    do
-    {
-        printf("Enter data: ");
-        fflush(stdin);
-        gets(data);
+do
+{
+printf(&quot;Enter data: &quot;);
+fflush(stdin);
+gets(data);
 
-        fprintf(fp, "%s\n", data);
+fprintf(fp, &quot;%s\n&quot;, data);
 
-        printf("Enter 1 to continue or 0 to stop: ");
-        scanf("%d", &amp;choice);
+printf(&quot;Enter 1 to continue or 0 to stop: &quot;);
+scanf(&quot;%d&quot;, &amp;choice);
 
-    } while (choice == 1);
+} while (choice == 1);
 
-    fclose(fp);
+fclose(fp);
 
-    printf("Data saved in file.");
-    getch();
+printf(&quot;Data saved in file.&quot;);
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
 <pre>diary.txt
 First line
 1
 Second line
-0</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
+0</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
 <pre>Enter file name: diary.txt
 Enter data: First line
 Enter 1 to continue or 0 to stop: 1
 Enter data: Second line
 Enter 1 to continue or 0 to stop: 0
-Data saved in file.</pre>
-</div>
+Data saved in file.</pre></div>
 </div>
 </article>
-
 </div>
 </details>
-
-<!-- Union Questions -->
 <details class="topic">
 <summary><span>Union Questions</span><span class="topic-count">4 questions</span></summary>
 <div class="topic-body">
-
 <article class="program">
 <h3>1. Basic Union Program.</h3>
 <div class="code-title">C Program</div>
@@ -4436,42 +4392,37 @@ Data saved in file.</pre>
 
 union Student
 {
-    int roll;
-    float marks;
-    char grade;
+int roll;
+float marks;
+char grade;
 };
 
 void main()
 {
-    union Student s;
+union Student s;
 
-    clrscr();
+clrscr();
 
-    s.roll = 12;
-    printf("Roll number = %d\n", s.roll);
+s.roll = 12;
+printf(&quot;Roll number = %d\n&quot;, s.roll);
 
-    s.marks = 85.5;
-    printf("Marks = %.1f\n", s.marks);
+s.marks = 85.5;
+printf(&quot;Marks = %.1f\n&quot;, s.marks);
 
-    s.grade = 'A';
-    printf("Grade = %c", s.grade);
+s.grade = &#x27;A&#x27;;
+printf(&quot;Grade = %c&quot;, s.grade);
 
-    getch();
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
 <pre>Roll number = 12
 Marks = 85.5
-Grade = A</pre>
-</div>
+Grade = A</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>2. Size of union - proves union saves memory.</h3>
 <div class="code-title">C Program</div>
@@ -4480,43 +4431,39 @@ Grade = A</pre>
 
 struct Sample
 {
-    int a;
-    float b;
-    char c;
+int a;
+float b;
+char c;
 };
 
 union SampleUnion
 {
-    int a;
-    float b;
-    char c;
+int a;
+float b;
+char c;
 };
 
 void main()
 {
-    clrscr();
+clrscr();
 
-    printf("Size of structure = %u bytes\n",
-           (unsigned)sizeof(struct Sample));
+printf(&quot;Size of structure = %u bytes\n&quot;,
+(unsigned)sizeof(struct Sample));
 
-    printf("Size of union = %u bytes",
-           (unsigned)sizeof(union SampleUnion));
+printf(&quot;Size of union = %u bytes&quot;,
+(unsigned)sizeof(union SampleUnion));
 
-    getch();
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
-<pre>Size of structure = 7 bytes
-Size of union = 4 bytes</pre>
-</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
+<pre>Example output (may vary by compiler):
+Size of structure = 7 bytes
+Size of union = 4 bytes</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>3. Difference between structure and union.</h3>
 <div class="code-title">C Program</div>
@@ -4525,55 +4472,50 @@ Size of union = 4 bytes</pre>
 
 struct Data
 {
-    int a;
-    float b;
+int a;
+float b;
 };
 
 union DataUnion
 {
-    int a;
-    float b;
+int a;
+float b;
 };
 
 void main()
 {
-    struct Data s;
-    union DataUnion u;
+struct Data s;
+union DataUnion u;
 
-    clrscr();
+clrscr();
 
-    s.a = 10;
-    s.b = 5.5;
+s.a = 10;
+s.b = 5.5;
 
-    printf("Structure values:\n");
-    printf("a = %d\n", s.a);
-    printf("b = %.1f\n", s.b);
+printf(&quot;Structure values:\n&quot;);
+printf(&quot;a = %d\n&quot;, s.a);
+printf(&quot;b = %.1f\n&quot;, s.b);
 
-    u.a = 10;
-    u.b = 5.5;
+u.a = 10;
+u.b = 5.5;
 
-    printf("\nUnion value:\n");
-    printf("b = %.1f", u.b);
+printf(&quot;\nUnion value:\n&quot;);
+printf(&quot;b = %.1f&quot;, u.b);
 
-    getch();
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
 <pre>Structure values:
 a = 10
 b = 5.5
 
 Union value:
-b = 5.5</pre>
-</div>
+b = 5.5</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>4. Union can hold only one value at a time.</h3>
 <div class="code-title">C Program</div>
@@ -4582,50 +4524,42 @@ b = 5.5</pre>
 
 union Value
 {
-    int number;
-    float decimal;
-    char letter;
+int number;
+float decimal;
+char letter;
 };
 
 void main()
 {
-    union Value v;
+union Value v;
 
-    clrscr();
+clrscr();
 
-    v.number = 25;
-    printf("Number = %d\n", v.number);
+v.number = 25;
+printf(&quot;Number = %d\n&quot;, v.number);
 
-    v.decimal = 7.5;
-    printf("Decimal = %.1f\n", v.decimal);
+v.decimal = 7.5;
+printf(&quot;Decimal = %.1f\n&quot;, v.decimal);
 
-    v.letter = 'A';
-    printf("Letter = %c", v.letter);
+v.letter = &#x27;A&#x27;;
+printf(&quot;Letter = %c&quot;, v.letter);
 
-    getch();
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
 <pre>Number = 25
 Decimal = 7.5
-Letter = A</pre>
-</div>
+Letter = A</pre></div>
 </div>
 </article>
-
 </div>
 </details>
-
-<!-- Recursion Questions -->
 <details class="topic">
 <summary><span>Recursion Questions</span><span class="topic-count">8 questions</span></summary>
 <div class="topic-body">
-
 <article class="program">
 <h3>1. Print A 5 times.</h3>
 <div class="code-title">C Program</div>
@@ -4634,35 +4568,30 @@ Letter = A</pre>
 
 void printA(int n)
 {
-    if (n == 0)
-        return;
+if (n == 0)
+return;
 
-    printf("A\n");
-    printA(n - 1);
+printf(&quot;A\n&quot;);
+printA(n - 1);
 }
 
 void main()
 {
-    clrscr();
-    printA(5);
-    getch();
+clrscr();
+printA(5);
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
 <pre>A
 A
 A
 A
-A</pre>
-</div>
+A</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>2. Print 1 to 5 using recursion.</h3>
 <div class="code-title">C Program</div>
@@ -4671,31 +4600,26 @@ A</pre>
 
 void printnum(int n)
 {
-    if (n &gt; 5)
-        return;
+if (n &gt; 5)
+return;
 
-    printf("%d ", n);
-    printnum(n + 1);
+printf(&quot;%d &quot;, n);
+printnum(n + 1);
 }
 
 void main()
 {
-    clrscr();
-    printnum(1);
-    getch();
+clrscr();
+printnum(1);
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
-<pre>1 2 3 4 5</pre>
-</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
+<pre>1 2 3 4 5</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>3. Print 5 to 1 using recursion.</h3>
 <div class="code-title">C Program</div>
@@ -4704,31 +4628,26 @@ void main()
 
 void printnum(int n)
 {
-    if (n == 0)
-        return;
+if (n == 0)
+return;
 
-    printf("%d ", n);
-    printnum(n - 1);
+printf(&quot;%d &quot;, n);
+printnum(n - 1);
 }
 
 void main()
 {
-    clrscr();
-    printnum(5);
-    getch();
+clrscr();
+printnum(5);
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
-<pre>5 4 3 2 1</pre>
-</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
+<pre>5 4 3 2 1</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>4. Infinite recursion.</h3>
 <div class="code-title">C Program</div>
@@ -4737,33 +4656,28 @@ void main()
 
 void repeat()
 {
-    printf("Function calling itself\n");
-    repeat();
+printf(&quot;Function calling itself\n&quot;);
+repeat();
 }
 
 void main()
 {
-    clrscr();
-    repeat();
-    getch();
+clrscr();
+repeat();
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
 <pre>Function calling itself
 Function calling itself
 Function calling itself
 ...
 
-The program will eventually stop responding or crash.</pre>
-</div>
+The program will eventually stop responding or crash.</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>5. Factorial using recursion.</h3>
 <div class="code-title">C Program</div>
@@ -4772,41 +4686,36 @@ The program will eventually stop responding or crash.</pre>
 
 int factorial(int n)
 {
-    if (n == 0 || n == 1)
-        return 1;
+if (n == 0 || n == 1)
+return 1;
 
-    return n * factorial(n - 1);
+return n * factorial(n - 1);
 }
 
 void main()
 {
-    int n;
+int n;
 
-    clrscr();
+clrscr();
 
-    printf("Enter a number: ");
-    scanf("%d", &amp;n);
+printf(&quot;Enter a number: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
 
-    if (n &lt; 0)
-        printf("Factorial is not possible.");
-    else
-        printf("Factorial = %d", factorial(n));
+if (n &lt; 0)
+printf(&quot;Factorial is not possible.&quot;);
+else
+printf(&quot;Factorial = %d&quot;, factorial(n));
 
-    getch();
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>5</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>5</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
 <pre>Enter a number: 5
-Factorial = 120</pre>
-</div>
+Factorial = 120</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>6. Write a program of recursion and display the output.</h3>
 <div class="code-title">C Program</div>
@@ -4815,32 +4724,27 @@ Factorial = 120</pre>
 
 int sum(int n)
 {
-    if (n == 0)
-        return 0;
+if (n == 0)
+return 0;
 
-    return n + sum(n - 1);
+return n + sum(n - 1);
 }
 
 void main()
 {
-    clrscr();
+clrscr();
 
-    printf("Sum = %d", sum(5));
+printf(&quot;Sum = %d&quot;, sum(5));
 
-    getch();
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
-<pre>Sum = 15</pre>
-</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
+<pre>Sum = 15</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>7. Write a program of recursion with global variable and display the output.</h3>
 <div class="code-title">C Program</div>
@@ -4851,34 +4755,29 @@ int n = 1;
 
 void display()
 {
-    if (n &gt; 5)
-        return;
+if (n &gt; 5)
+return;
 
-    printf("%d ", n);
-    n++;
-    display();
+printf(&quot;%d &quot;, n);
+n++;
+display();
 }
 
 void main()
 {
-    clrscr();
+clrscr();
 
-    display();
+display();
 
-    getch();
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
-<pre>1 2 3 4 5</pre>
-</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
+<pre>1 2 3 4 5</pre></div>
 </div>
 </article>
-
 <article class="program">
 <h3>8. Write a program of recursion with local variable and display the output.</h3>
 <div class="code-title">C Program</div>
@@ -4887,35 +4786,30 @@ void main()
 
 void display(int n)
 {
-    if (n == 0)
-        return;
+if (n == 0)
+return;
 
-    display(n - 1);
-    printf("%d ", n);
+display(n - 1);
+printf(&quot;%d &quot;, n);
 }
 
 void main()
 {
-    clrscr();
+clrscr();
 
-    display(5);
+display(5);
 
-    getch();
+getch();
 }</code></pre>
 <div class="sample-grid">
-<div class="sample-cell">
-<div class="code-title">Sample input</div>
-<pre>No input required</pre>
-</div>
-<div class="sample-cell">
-<div class="output-title">Sample output</div>
-<pre>1 2 3 4 5</pre>
-</div>
+<div class="sample-cell"><div class="code-title">Sample input</div>
+<pre>No input required</pre></div>
+<div class="sample-cell"><div class="output-title">Sample output</div>
+<pre>1 2 3 4 5</pre></div>
 </div>
 </article>
-
-</div></article>
-</div></details>
+</div>
+</details>
 </div>
 </main>
 <footer>C Language Practice</footer>
